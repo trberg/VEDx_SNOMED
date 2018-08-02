@@ -63,6 +63,15 @@
   <!-- Tutorial slide show -->
   <div class="slideshow" id="tutorial-container">
     <div id="slide-1" class="slide">
+      <div class="slide-text-1">
+          <h3>What is ICD9?</h3>
+          <p>The International Classification of Diseases, Ninth Revision, is the US health system's coding 
+            standard for recording diagnosis and symptoms of patients and is used mainly for billing purposes.</p>
+          <p>ICD9 has a hierarchical tree structure, where the leaf node codes (<span style="color:#29AB87">green</span>) are highly specific "billable" 
+            codes and the parent node codes (<span style="color:#2098D1">blue</span>) are broader categories of diseases and symptoms</p>
+          <p>The "billable" codes are the codes that are used for billing purposes, while the parent nodes are never 
+            used for this purpose. This typically means that the parent nodes are not present in raw EHR datasets.</p>
+      </div>
       <svg class="tutorial-icd9-tree" id="slide-1-icd9" style="font-size:30px; width:50%; color:#545454;">
         <style>
           .text_style { fill: #696969; }
@@ -115,15 +124,6 @@
         <text x="240" y="360" class="small"> - Burn of unspecified degree of lip(s)</text>
         <line x1="120" y1="355" x2="135" y2="355" class="line_style"></line>
       </svg>
-      <div class="slide-text-1">
-          <h3>What is ICD9?</h3>
-          <p>The International Classification of Diseases, Ninth Revision, is the US health system's coding 
-            standard for recording diagnosis and symptoms of patients and is used mainly for billing purposes.</p>
-          <p>ICD9 has a hierarchical tree structure, where the leaf node codes (<span style="color:#29AB87">green</span>) are highly specific "billable" 
-            codes and the parent node codes (<span style="color:#2098D1">blue</span>) are broader categories of diseases and symptoms</p>
-          <p>The "billable" codes are the codes that are used for billing purposes, while the parent nodes are never 
-            used for this purpose. This typically means that the parent nodes are not present in raw EHR datasets.</p>
-      </div>
     </div>
 
     <div id="slide-2" class="slide">
@@ -189,7 +189,7 @@
           </div>
     </div>
     <div id="slide-3" class="slide">
-      <img src="/static/images/ICD9_Tree_example.png" height="100%">
+      <img src="/static/images/ICD9_Tree_example.png" height="100%" style="float:right;">
       <div class="slide-text-1">
           <h3>How we Visualize the Hierarchy?</h3>
           <p>If we visualize the ICD9 codes as a hierarchical tree, we can represent the different codes
@@ -200,7 +200,7 @@
     </div>
     <div id="slide-4" class="slide">
       <h3>Data Format and Upload</h3>
-      <div class="slide-text-2">
+      <div class="slide-text-1">
         <p>Create and format your csv file with two columns. Use column names "ICD 9 Code" and "counts" (both are case sensitive).
           When uploading counts, only include the leaf (billable) code counts in your dataset. VEDx will automatically propagate
           the counts to the parents.
@@ -231,16 +231,15 @@
         </tr>
       </table>
       </div>
-      <div class="slide-text-1">
+      <div class="slide-text-2">
         <br>
         <p>Upload your CSV file with ICD9 codes and counts using the menu in the upper left corner and then hit submit.</p>
         <img src="/static/images/upload_csv_img.png">
       </div>
     </div>
     <div id="slide-5" class="slide">
-      <div class="slide-text-1">
+      <div class="slide-text-3">
         <h3>Interaction Functionality (alpha version)</h3>
-        <p>Test out these functions on the left</p>
         <h4>Clicking</h4>
         <p>Clicking on the different nodes will toggle the labels of the nodes containing the code descriptions.</p>
         <h4>Dragging</h4>
@@ -250,7 +249,8 @@
           are activated will be present in the image.
         </p>
       </div>
-      <svg id="icd9tutorial" class="tutorial-icd9-tree"></svg>
+      <h3 style="margin-bottom:0px; text-align: center;">Test Functionality Here</h3>
+      <svg id="icd9tutorial" class="tutorial-icd9-inter-tree"></svg>
     </div>
   </div>
 <div id="slide_btn" class="slide_btn">

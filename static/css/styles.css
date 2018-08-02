@@ -8,11 +8,20 @@ html, body {
     font-family: 'Roboto', sans-serif;
 }
 
+html { font-size: 100%; }
+body { font-size: 1em; }
+h1 {
+    margin-left: 500px;
+    align-self: center;
+    font-size: 3em; 
+}
+
 table {
     width: 70%; 
     border: 2px solid #696969;
     margin-bottom: 15px;
 }
+
 table th {
     border: 1px solid #696969;
     padding: 3px 2px 1px 5px;
@@ -63,7 +72,7 @@ hr {
 }
 
 .subcaption_text {
-    font-size: 15px;
+    font-size: 1em;
     color: #696969;
     margin-top: -10px;
 }
@@ -75,7 +84,7 @@ hr {
     height: 50%;
     color: #696969;
     position: static;
-    font-size: 20px;
+    font-size: 1.2em;
 }
 
 .slide_btn {
@@ -93,21 +102,36 @@ hr {
 }
 
 .slideshow .slide .slide-text-1 {
-    float: right;
-    width: 50%;
+    float: left;
+    width: 40%;
+    padding-left: 2%;
 }
 
 
 .slideshow .slide .slide-text-2 {
-    float: left;
+    float: right;
+    padding-left: 2%;
     width: 40%;
+}
+
+.slideshow .slide .slide-text-3 {
+    float: left;
+    padding-left: 2%;
+    width: 50%;
 }
 
 .tutorial-icd9-tree {
     height: 100%;
-    width: 50%;
-    float:left;
+
 }
+
+.tutorial-icd9-inter-tree {
+    height: 90%;
+    width: 50%;
+    float: right;
+    padding: 2%;
+}
+
 
 .masthead {
     height: 100%;
@@ -147,11 +171,6 @@ hr {
     width: 50%;
 }
 
-h1 {
-    margin-left: 500px;
-    align-self: center;
-}
-
 box {
     width: 120px;
     height: 120px;
@@ -160,7 +179,7 @@ box {
 
 button {
     font-family: 'Roboto', sans-serif;
-    font-size: 17px;
+    font-size: 1.1em;
     color: #696969;
     background-color: #e1e1e1;
     border: 1px solid #e1e1e1;
