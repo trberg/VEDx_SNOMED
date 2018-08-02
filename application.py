@@ -20,9 +20,6 @@ def csv_data():
     data_csv = pd.read_csv(data, sep=",")
 
     JSON_data = generateJSON_counts(data_csv)
-
-    outfile.write(json.dumps(JSON_data, indent=2))
-    outfile.close()
     
     return jsonify(JSON_data)
 
