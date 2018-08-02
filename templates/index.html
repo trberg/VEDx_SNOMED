@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Boostrap stylesheet-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+
+  <!-- Fonts for this page-->
+  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amita" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href='/static/css/styles.css' rel='stylesheet' type='text/css'>
+
+  <title>VEDx</title>
+
+</head>
+
+<body>
+  <!-- Things to add to top bar:
+          1. Label filter slider
+          3. Custom size ratios (log, linear, quad)
+          X file upload feature
+          2. children node collapsable
+          4. svg height/width ratio adjustment
+          5. rescaling bug fixes
+          6. selection for color pallete
+      Long term
+          - FHIR application
+   -->
+   <div class="row">
+    <div class="top-bar">
+      <div class="column">
+
+          <input type="file" id="fileid" accept=".CSV" hidden/>
+          <input type="submit" id="submit_input" hidden/>
+
+          <button id='buttonid'>Upload CSV</button>
+          <p id="filename" style="margin-left:5px;">No file</p>
+          <button id="submitButton">Submit</button>
+      </div>
+      <div class="column">
+        <button id='saveButton'>Export to PNG</button>
+      </div>
+    </div>
+  </div>
+  <div class="logo" id="central_logo">
+    <p>
+      <span class="viz_text">VE</span><span class="main_text">D</span><span class="x_text"><sub>x</sub></span>
+      <hr>
+      <span class="subcaption_text">An ICD9 visualization tool</span>
+    </p>
+  </div>
+  <button id="tutorial_btn" class="tutorial">Tutorial</button>
+
+  <!-- Tutorial slide show -->
+  <div class="slideshow" id="tutorial-container">
+    <div id="slide-1" class="slide">
+      <svg class="tutorial-icd9-tree" id="slide-1-icd9" style="font-size:30px; width:50%; color:#545454;">
+        <style>
+          .text_style { fill: #696969; }
+          .parent_nodes { fill: #2098D1; }
+          .leaf_nodes { fill: #29AB87 }
+          .small { font-size: 20px; fill: #696969 }
+          .line_style { stroke:#696969; }
+        </style>
+        <text x="0" y="50" class="parent_nodes">800-999</text>
+        <text x="120" y="45" class="small"> - Injury and Poisoning</text>
+        <line x1="20" y1="55" x2="20" y2="215" class="line_style"></line>
+        <line x1="20" x2="45" y1="75" y2="75" class="line_style"></line>
+        <line x1="20" y1="215" x2="45" y2="215" class="line_style"></line>
+
+        <text x="50" y="85" class="parent_nodes">830-839</text>
+        <text x="170" y="80" class="small"> - Dislocations</text>
+        <line x1="70" y1="90" x2="70" y2="110" class="line_style"></line>
+        <line x1="70" x2="105" y1="110" y2="110" class="line_style"></line>
+
+        <text x="110" y="120" class="parent_nodes">830</text>
+        <text x="170" y="115" class="small"> - Dislocation of jaw</text>
+        <line x1="120" y1="130" x2="120" y2="180" class="line_style"></line>
+
+        <text x="140" y="155" class="leaf_nodes">830.0</text>
+        <text x="230" y="150" class="small"> - Closed dislocation of jaw</text>
+        <line x1="120" y1="145" x2="135" y2="145" class="line_style"></line>
+
+        <text x="140" y="190" class="leaf_nodes">830.1</text>
+        <text x="230" y="185" class="small"> - Open dislocation of jaw</text>
+        <line x1="120" y1="180" x2="135" y2="180" class="line_style"></line>
+
+        <text x="50" y="225" class="parent_nodes">940-949</text>
+        <text x="170" y="220" class="small"> - Burns</text>
+        <line x1="70" y1="230" x2="70" y2="250" class="line_style"></line>
+        <line x1="70" x2="105" y1="250" y2="250" class="line_style"></line>
+
+        <text x="110" y="260" class="parent_nodes">941</text>
+        <text x="170" y="255" class="small"> - Burn of face, head, and neck</text>
+        <line x1="120" y1="265" x2="120" y2="355" class="line_style"></line>
+
+        <text x="140" y="295" class="leaf_nodes">941.01</text>
+        <text x="240" y="290" class="small"> - Burn of unspecified degree of ear</text>
+        <line x1="120" y1="285" x2="135" y2="285" class="line_style"></line>
+
+        <text x="140" y="330" class="leaf_nodes">941.02</text>
+        <text x="240" y="325" class="small"> - Burn of unspecified degree of eye</text>
+        <line x1="120" y1="320" x2="135" y2="320" class="line_style"></line>
+
+        <text x="140" y="365" class="leaf_nodes">941.03</text>
+        <text x="240" y="360" class="small"> - Burn of unspecified degree of lip(s)</text>
+        <line x1="120" y1="355" x2="135" y2="355" class="line_style"></line>
+      </svg>
+      <div class="slide-text-1">
+          <h3>What is ICD9?</h3>
+          <p>The International Classification of Diseases, Ninth Revision, is the US health system's coding 
+            standard for recording diagnosis and symptoms of patients and is used mainly for billing purposes.</p>
+          <p>ICD9 has a hierarchical tree structure, where the leaf node codes (<span style="color:#29AB87">green</span>) are highly specific "billable" 
+            codes and the parent node codes (<span style="color:#2098D1">blue</span>) are broader categories of diseases and symptoms</p>
+          <p>The "billable" codes are the codes that are used for billing purposes, while the parent nodes are never 
+            used for this purpose. This typically means that the parent nodes are not present in raw EHR datasets.</p>
+      </div>
+    </div>
+
+    <div id="slide-2" class="slide">
+        <svg class="tutorial-icd9-tree" id="slide-2-icd9" style="font-size:30px; width:50%; color:#545454;">
+            <style>
+              .text_style { fill: #696969; }
+              .parent_nodes { fill: #2098D1; }
+              .leaf_nodes { fill: #29AB87 }
+              .small { font-size: 20px; fill: #696969 }
+              .line_style { stroke:#696969; }
+            </style>
+            <text x="0" y="50" class="parent_nodes">800-999</text>
+            <text x="120" y="45" class="small"> (122)</text>
+            <line x1="20" y1="55" x2="20" y2="215" class="line_style"></line>
+            <line x1="20" x2="45" y1="75" y2="75" class="line_style"></line>
+            <line x1="20" y1="215" x2="45" y2="215" class="line_style"></line>
+    
+            <text x="50" y="85" class="parent_nodes">830-839</text>
+            <text x="170" y="80" class="small"> (38)</text>
+            <line x1="70" y1="90" x2="70" y2="110" class="line_style"></line>
+            <line x1="70" x2="105" y1="110" y2="110" class="line_style"></line>
+    
+            <text x="110" y="120" class="parent_nodes">830</text>
+            <text x="170" y="115" class="small"> (38)</text>
+            <line x1="120" y1="130" x2="120" y2="180" class="line_style"></line>
+    
+            <text x="140" y="155" class="leaf_nodes">830.0</text>
+            <text x="230" y="150" class="small"> (12)</text>
+            <line x1="120" y1="145" x2="135" y2="145" class="line_style"></line>
+    
+            <text x="140" y="190" class="leaf_nodes">830.1</text>
+            <text x="230" y="185" class="small"> (26)</text>
+            <line x1="120" y1="180" x2="135" y2="180" class="line_style"></line>
+    
+            <text x="50" y="225" class="parent_nodes">940-949</text>
+            <text x="170" y="220" class="small"> (84)</text>
+            <line x1="70" y1="230" x2="70" y2="250" class="line_style"></line>
+            <line x1="70" x2="105" y1="250" y2="250" class="line_style"></line>
+    
+            <text x="110" y="260" class="parent_nodes">941</text>
+            <text x="170" y="255" class="small"> (84)</text>
+            <line x1="120" y1="265" x2="120" y2="355" class="line_style"></line>
+    
+            <text x="140" y="295" class="leaf_nodes">941.01</text>
+            <text x="240" y="290" class="small"> (27)</text>
+            <line x1="120" y1="285" x2="135" y2="285" class="line_style"></line>
+    
+            <text x="140" y="330" class="leaf_nodes">941.02</text>
+            <text x="240" y="325" class="small"> (35)</text>
+            <line x1="120" y1="320" x2="135" y2="320" class="line_style"></line>
+    
+            <text x="140" y="365" class="leaf_nodes">941.03</text>
+            <text x="240" y="360" class="small"> (22)</text>
+            <line x1="120" y1="355" x2="135" y2="355" class="line_style"></line>
+          </svg>
+          <div class="slide-text-1">
+              <h3>Why Visualize the Hierarchy?</h3>
+              <p>ICD9 codes are often used in biomedical research for labeling and phenotyping
+                individual patients; however, understanding cohorts of patients by looking at their collection
+                of diagnosis codes can be daunting.</p> 
+              <p>By propagating leaf node counts up to the 
+                parent nodes, larger trends often appear that give insight into the cohort.</p>
+          </div>
+    </div>
+    <div id="slide-3" class="slide">
+      <img src="/static/images/ICD9_Tree_example.png" height="100%">
+      <div class="slide-text-1">
+          <h3>How we Visualize the Hierarchy?</h3>
+          <p>If we visualize the ICD9 codes as a hierarchical tree, we can represent the different codes
+            as circles, with the size of the circles varying proportionally to the code counts.</p> 
+          <p>This visualization allows us to track which codes are being called more often, as well as 
+            visualize which high level categories are being used more often within a cohort.</p>
+      </div>
+    </div>
+    <div id="slide-4" class="slide">
+      <h3>Data Format and Upload</h3>
+      <div class="slide-text-2">
+        <p>Create and format your csv file with two columns. Use column names "ICD 9 Code" and "counts" (both are case sensitive).
+          When uploading counts, only include the leaf (billable) code counts in your dataset. VEDx will automatically propagate
+          the counts to the parents.
+        </p>
+      <table>
+        <tr>
+          <th>ICD 9 Code</th>
+          <th>counts</th>
+        </tr>
+        <tr>
+            <th>830.0</th>
+            <th>12</th>
+        </tr>
+        <tr>
+          <th>830.1</th>
+          <th>26</th></tr>
+        <tr>
+          <th>941.01</th>
+          <th>27</th>
+        </tr>
+        <tr>
+          <th>941.02</th>
+          <th>35</th>
+        </tr>
+        <tr>
+          <th>941.03</th>
+          <th>22</th>
+        </tr>
+      </table>
+      </div>
+      <div class="slide-text-1">
+        <br>
+        <p>Upload your CSV file with ICD9 codes and counts using the menu in the upper left corner and then hit submit.</p>
+        <img src="/static/images/upload_csv_img.png">
+      </div>
+    </div>
+    <div id="slide-5" class="slide">
+      <div class="slide-text-1">
+        <h3>Interaction Functionality (alpha version)</h3>
+        <p>Test out these functions on the left</p>
+        <h4>Clicking</h4>
+        <p>Clicking on the different nodes will toggle the labels of the nodes containing the code descriptions.</p>
+        <h4>Dragging</h4>
+        <p>The labels that appear when the circles are clicked can be dragged to an optimal location</p>
+        <h4>Exporting</h4>
+        <p>Use the "Export to PNG" button in the top menu to export the SVG image as is to a PNG file. Any labels that
+          are activated will be present in the image.
+        </p>
+      </div>
+      <svg id="icd9tutorial" class="tutorial-icd9-tree"></svg>
+    </div>
+  </div>
+<div id="slide_btn" class="slide_btn">
+  <button id="prev_slide" >previous</button><button id="next_slide">next</button>
+</div>
+
+
+<svg id="icd9tree" class="icd9class"></svg>
+
+
+<!-- load the d3.js library -->	
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="//d3plus.org/js/d3.js"></script>
+
+<!-- load the text wrapping library -->
+<script src="//d3plus.org/js/d3plus.js"></script>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+<!-- load PNG exporting scripts -->
+<script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
+<script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+
+<!-- Application modules -->
+<script type="module" src="/static/js/index.js"></script>
+<script type="module" src="/static/js/export.js"></script>
+<script type="module" src="/static/js/tree.js"></script>
+<script type="module" src="/static/js/circles.js"></script>
+
+</body>

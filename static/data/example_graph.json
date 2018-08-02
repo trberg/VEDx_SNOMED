@@ -1,0 +1,98 @@
+{
+  "description": "ICD 9 Root", 
+  "parent": "null", 
+  "depth": "null", 
+  "size": 122, 
+  "children": [
+    {
+      "name": "800-999", 
+      "parent": null, 
+      "description": "INJURY AND POISONING ", 
+      "depth": 1, 
+      "children": [
+        {
+          "description": "Burns", 
+          "parent": "800-999", 
+          "name": "940-949", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Burn of face, head, and neck", 
+              "parent": "940-949", 
+              "name": "941", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Unspecified degree", 
+                  "parent": "941", 
+                  "name": "941.0", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 22, 
+                      "name": "941.03", 
+                      "parent": "941.0", 
+                      "description": "Burn of unspecified degree of lip(s)"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 27, 
+                      "name": "941.01", 
+                      "parent": "941.0", 
+                      "description": "Burn of unspecified degree of ear [any part]"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 35, 
+                      "name": "941.02", 
+                      "parent": "941.0", 
+                      "description": "Burn of unspecified degree of eye (with other parts of face, head, and neck)"
+                    }
+                  ], 
+                  "size": 84
+                }
+              ], 
+              "size": 84
+            }
+          ], 
+          "size": 84
+        }, 
+        {
+          "description": "DISLOCATION ", 
+          "parent": "800-999", 
+          "name": "830-839", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Dislocation of jaw", 
+              "parent": "830-839", 
+              "name": "830", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 26, 
+                  "name": "830.1", 
+                  "parent": "830", 
+                  "description": "Open dislocation of jaw"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 12, 
+                  "name": "830.0", 
+                  "parent": "830", 
+                  "description": "Closed dislocation of jaw"
+                }
+              ], 
+              "size": 38
+            }
+          ], 
+          "size": 38
+        }
+      ], 
+      "size": 122
+    }
+  ], 
+  "name": "trauma"
+}
