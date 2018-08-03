@@ -9,6 +9,19 @@ export function startTutorial() {
     });
 }
 
+export function loadExample() {
+    $("button.tutorial").fadeOut(200, function() {
+        $("div.logo").fadeOut(400, loadExampleData);
+    });
+}
+
+function loadExampleData() {
+    d3.json("/static/data/example_graph.json", function(error, data) {
+        if (error) throw error;
+        tree(data, "main");
+      });
+}
+
 function firstSlide() {
     $("div.slideshow").fadeIn(1);
     $("#slide-1").fadeIn(400);
@@ -25,7 +38,8 @@ function nextSlide() {
     }
     else if (current_slide == 5) {
         $("#slide-" + (current_slide - 1)).fadeOut(200, function() {
-            $("#slide-" + current_slide).fadeIn(400, loadTutorialData);
+            $("#slide-" + current_slide).fadeIn(400);
+            loadTutorialData();
         });
     }
     else {
@@ -54,12 +68,16 @@ const loadTutorialData = () => {
     });
   }
 
+const clearTutorialSVG = () => {
+    d3.select("#icd9tutorial").selectAll("g").remove();
+    d3.select("#icd9tutorial").selectAll("path").remove();
+}
 
 function endTutorial() {
     $("div.slide_btn").fadeOut(200);
     $("div.slideshow").fadeOut(200, function() {
         $("div.logo").fadeIn(400, function() {
-            $("button.tutorial").fadeIn(400);
+            $("button.tutorial").fadeIn(400, clearTutorialSVG);
         });
     });
 }

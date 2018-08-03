@@ -6,7 +6,10 @@
 // Set-up the export button
 const setExportButton = (WIDTH, HEIGHT) => {
     d3.select('#saveButton').on('click', function(){
-        if (document.getElementById("tutorial-container").style.display) {
+        var tutorial_active = document.getElementById("tutorial-container").style.display;
+        if (tutorial_active != "none" && tutorial_active != "") {
+            console.log("tutorial container");
+            console.log(document.getElementById("tutorial-container").style.display);
             var svg = d3.select("svg#icd9tutorial");
             var svgString = getSVGString(svg.node());
 

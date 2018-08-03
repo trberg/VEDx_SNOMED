@@ -48,8 +48,8 @@ const loadConfigs = (location) => {
         configs.sizeWeight = 0.05;
     
         // add rectangles for label containers
-        configs.rectWidth = configs.width*.16 //120; //screen.width*0.09;
-        configs.rectHeight = configs.width*0.07 //50; //screen.width*0.045;
+        configs.rectWidth = configs.width*.13 //120; //screen.width*0.09;
+        configs.rectHeight = configs.width*0.05 //50; //screen.width*0.045;
     
         // set default season value
         configs.labelSize = 450;
@@ -168,9 +168,8 @@ function update(root, location) {
 
 // add the description of the code to the label
 function addText() {
-    console.log(this);
+    
     let labelEnter = d3.select(this.parentNode);
-    console.log(labelEnter);
 
     var configs = {
         "width": rectWidth,

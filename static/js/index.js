@@ -1,7 +1,7 @@
 
 import { export_init } from "./export.js";
 import { tree } from "./tree.js";
-import { startTutorial } from "./tutorial.js";
+import { startTutorial, loadExample } from "./tutorial.js";
 
 // set the global variable values
 let configs = {},
@@ -10,6 +10,10 @@ let configs = {},
 
 // file upload functions
 const uploadbutton = () => {
+
+  // add event listener to example file button
+  document.getElementById("example_file").addEventListener('click', loadExample);
+
   // add event listener to visible upload file button
   document.getElementById('buttonid').addEventListener('click', openDialog);
 
