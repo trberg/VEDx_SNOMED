@@ -44,12 +44,12 @@ const loadConfigs = (location) => {
             HEIGHT = svg_height.substring(0, svg_height.length - 2);
     
         configs.width = WIDTH,
-        configs.height = HEIGHT,
+        configs.height = HEIGHT - HEIGHT*0.2,
         configs.sizeWeight = 0.05;
     
         // add rectangles for label containers
-        configs.rectWidth = 120; //screen.width*0.09;
-        configs.rectHeight = 50; //screen.width*0.045;
+        configs.rectWidth = configs.width*.16 //120; //screen.width*0.09;
+        configs.rectHeight = configs.width*0.07 //50; //screen.width*0.045;
     
         // set default season value
         configs.labelSize = 450;
@@ -90,12 +90,9 @@ function update(root, location) {
     var diagonal = d3.svg.diagonal()
       .projection(function(d) { return [d.x, d.y]; });
 
-    if (location=="main") {
-        var svg = d3.select("svg.icd9class")
-            .style("background-color", "#fff");
-    }
-    else if (location=="tutorial") {
+    if (location=="tutorial") {
         var svg = d3.select("svg#icd9tutorial")
+            .style("background-color", "#fff");
     }
     else {
         var svg = d3.select("svg.icd9class")
@@ -129,7 +126,10 @@ function update(root, location) {
       .attr("labeled", false)
         .attr("transform", function(d) { 
         return "translate(" + d.x + "," + d.y + ")"; });
-  
+
+    
+    // add circles to the nodes and calculate size and color
+    // add interaction features to circles
     nodeEnter.append("circle")
       .attr("r", function(d) { return circleSize(d, tree_configs); })
       .attr("id", function(d) { return "circle" + d.id; })
@@ -155,11 +155,22 @@ function update(root, location) {
             return color(d.source.name.replace(/ .*/, "")); })
         .attr("id", function(d) { return "parent" + d.source.id; })
         .attr("d", diagonal);
+
+    // Append label node
+    var label = nodeEnter.append("g")
+        .attr("transform", function(d) {
+            return "translate(" + 0 + "," + 0 + ")"; })
+        .attr("id", function(d) { return "label" + d.id; })
+        .attr("labeled", false)
+        .call(d3.behavior.drag()
+            .on("drag", dragged));
 }
 
 // add the description of the code to the label
 function addText() {
+    console.log(this);
     let labelEnter = d3.select(this.parentNode);
+    console.log(labelEnter);
 
     var configs = {
         "width": rectWidth,
@@ -172,7 +183,7 @@ function addText() {
     }
     //.text(function(d) { return d.description + "   " + d.name; })
     labelEnter.append("text")
-        .attr("id", function(d) { return "text" + "node" + d.id; })
+        .attr("id", function(d) { return "node" + d.id; })
         .attr("x", function(d) { return labelX()+3; })
         .attr("y", function(d) { return labelY(d, sizeWeight)+3; })
         .each(function(d) {
@@ -192,15 +203,14 @@ function addText() {
 
 // adds and removes the node labels onclick
 function labelNode() {
-    let labelEnter = d3.select(this.parentNode);
+    
+    let labelEnter = d3.select(this.parentNode).select("g");
     
     if (labelEnter.attr("labeled") == "false") {
     
         // add rect as label
         labelEnter.append("rect")
         .attr("id", function(d) { return  "node" + d.id; })
-        .call(d3.behavior.drag()
-            .on("drag", dragged))
             .transition().duration(200)
             .attr('x', function(d) { return labelX(); })
             .attr('y', function(d) { return labelY(d); })
@@ -213,7 +223,7 @@ function labelNode() {
         
         // add line from circle to label
         labelEnter.append("line")
-        .attr("id", function(d) { return "line" + "node" + d.id; })
+        .attr("id", function(d) { return "node" + d.id; })
         .attr("x1", 0)
         .attr("y1", 0)
         .attr("x2", 0)
@@ -248,18 +258,7 @@ function labelNode() {
 }
 
 const labelFilter = d => {
-    if (cur_season == "winter") {
-        return (d.size > 90 || d.depth < 2);
-    }
-    if (cur_season == "summer") {
-        return (d.size > 170 || d.depth < 2) || (d.size > 50 && d.depth == 5);
-    }
-    if (cur_season == "spring") {
-        return (d.size > 30 || d.depth < 2);
-    }
-    if (cur_season == "fall") {
-        return (d.size > 10 || d.depth < 2);
-    }
+
 }
 
 // filters which nodes should have labels based on the label size configuration
@@ -305,28 +304,31 @@ const lineX = () => {
 // enables the drag capabilities of the node labels
 function dragged(d) {
 
+    var x = d3.event.x - (tree_configs.rectWidth/2),
+        y = d3.event.y - 20;
+
     // drag the rect
-    d3.select(this)
-        .attr("x", d.x = d3.event.x)
-        .attr("y", d.y = d3.event.y);
+    d3.select("rect#node" + d.id)
+        .attr("x", d.x = x)
+        .attr("y", d.y = y);
 
     // drag the end of the line and recalculate
-    d3.select("line#line" + this.id)
+    d3.select("line#node" + d.id)
         .attr("x2", function() {
             if (labelCenter()) {
                 return 0;
             }
             else if (labelBelow()){
-                return d3.event.x + (rectWidth/2);
+                return x + (rectWidth/2);
             }
             else if (labelAbove()){
-                return d3.event.x + (rectWidth/2);
+                return x + (rectWidth/2);
             }
             else if (labelLeft()) {
-                return d3.event.x + rectWidth;
+                return x + rectWidth;
             }
             else if (labelRight()) {
-                return d3.event.x;
+                return x;
             }
             else {
                 return d3.event.x + (rectWidth/2);
@@ -337,16 +339,16 @@ function dragged(d) {
                 return 0;
             }
             else if (labelBelow()){
-                return d3.event.y;
+                return y;
             }
             else if (labelAbove()){
-                return d3.event.y + rectHeight;
+                return y + rectHeight;
             }
             else if (labelLeft()) {
-                return d3.event.y + rectHeight/2;
+                return y + rectHeight/2;
             }
             else if (labelRight()) {
-                return d3.event.y + rectHeight/2;
+                return y + rectHeight/2;
             }
             else {
                 return d3.event.y;
@@ -354,36 +356,51 @@ function dragged(d) {
         });
 
     // drag the text in the rect
-    d3.select("text#text" + this.id)
-        .attr("y", d3.event.y)
+    d3.select("text#node" + d.id)
+        .attr("y", y + 3)
         .selectAll("tspan")
-        .attr("x", d3.event.x + (rectWidth)/2);
+            .attr("x", x + (rectWidth)/2);
 
 }
 
 function labelCenter() {
-    var calc = ((d3.event.x < 0 && d3.event.y < 0) && 
-    (d3.event.y + tree_configs.rectHeight > 0 && d3.event.x + tree_configs.rectWidth > 0));
+    var x = d3.event.x - (tree_configs.rectWidth/2),
+        y = d3.event.y - 20;
+
+    var calc = ((x < 0 && y < 0) && 
+    (y + tree_configs.rectHeight > 0 && x + tree_configs.rectWidth > 0));
     return calc;
 }
 
 function labelLeft(){
-    var calc = (d3.event.x < 0 && d3.event.x + tree_configs.rectWidth < 0);
+    var x = d3.event.x - (tree_configs.rectWidth/2),
+        y = d3.event.y - 20;
+
+    var calc = (x < 0 && x + tree_configs.rectWidth < 0);
     return calc;
 }
 
 function labelRight(){
-    var calc = (d3.event.x > 0 && d3.event.x + tree_configs.rectWidth > 0);
+    var x = d3.event.x - (tree_configs.rectWidth/2),
+        y = d3.event.y - 20;
+
+    var calc = (x > 0 && x + tree_configs.rectWidth > 0);
     return calc;
 }
 
 function labelAbove(){
-    var calc = (d3.event.y < 0 && d3.event.y + tree_configs.rectHeight < 0);
+    var x = d3.event.x - (tree_configs.rectWidth/2),
+        y = d3.event.y - 20;
+
+    var calc = (y < 0 && y + tree_configs.rectHeight < 0);
     return calc;
 }
 
 function labelBelow(){
-    var calc = (d3.event.y > 0 && d3.event.y + tree_configs.rectHeight > 0);
+    var x = d3.event.x - (tree_configs.rectWidth/2),
+        y = d3.event.y - 20;
+
+    var calc = (y > 0 && y + tree_configs.rectHeight > 0);
     return calc;
 }
 

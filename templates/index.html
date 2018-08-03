@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Amita" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 
@@ -53,9 +54,9 @@
   </div>
   <div class="logo" id="central_logo">
     <p>
-      <span class="viz_text">VE</span><span class="main_text">D</span><span class="x_text"><sub>x</sub></span>
+      <span class="ve_text">VE</span><span class="d_text">D</span><span class="x_text"><sub>x</sub></span>
       <hr>
-      <span class="subcaption_text">An ICD9 visualization tool</span>
+      <span class="subcaption_text">Visual Exploration of Diagnosis Codes</span>
     </p>
   </div>
   <button id="tutorial_btn" class="tutorial">Tutorial</button>
@@ -72,111 +73,97 @@
           <p>The "billable" codes are the codes that are used for billing purposes, while the parent nodes are never 
             used for this purpose. This typically means that the parent nodes are not present in raw EHR datasets.</p>
       </div>
-      <svg class="tutorial-icd9-tree" id="slide-1-icd9" style="font-size:30px; width:50%; color:#545454;">
-        <style>
-          .text_style { fill: #696969; }
-          .parent_nodes { fill: #2098D1; }
-          .leaf_nodes { fill: #29AB87 }
-          .small { font-size: 20px; fill: #696969 }
-          .line_style { stroke:#696969; }
-        </style>
+      <svg class="tutorial-icd9-tree" id="slide-1-icd9">
         <text x="0" y="50" class="parent_nodes">800-999</text>
-        <text x="120" y="45" class="small"> - Injury and Poisoning</text>
+        <text x="100" y="45" class="small" length="10px"> - Injury and Poisoning</text>
         <line x1="20" y1="55" x2="20" y2="215" class="line_style"></line>
         <line x1="20" x2="45" y1="75" y2="75" class="line_style"></line>
         <line x1="20" y1="215" x2="45" y2="215" class="line_style"></line>
 
         <text x="50" y="85" class="parent_nodes">830-839</text>
-        <text x="170" y="80" class="small"> - Dislocations</text>
+        <text x="150" y="80" class="small"> - Dislocations</text>
         <line x1="70" y1="90" x2="70" y2="110" class="line_style"></line>
         <line x1="70" x2="105" y1="110" y2="110" class="line_style"></line>
 
         <text x="110" y="120" class="parent_nodes">830</text>
-        <text x="170" y="115" class="small"> - Dislocation of jaw</text>
+        <text x="160" y="115" class="small"> - Dislocation of jaw</text>
         <line x1="120" y1="130" x2="120" y2="180" class="line_style"></line>
 
         <text x="140" y="155" class="leaf_nodes">830.0</text>
-        <text x="230" y="150" class="small"> - Closed dislocation of jaw</text>
+        <text x="210" y="150" class="small"> - Closed dislocation of jaw</text>
         <line x1="120" y1="145" x2="135" y2="145" class="line_style"></line>
 
         <text x="140" y="190" class="leaf_nodes">830.1</text>
-        <text x="230" y="185" class="small"> - Open dislocation of jaw</text>
+        <text x="210" y="185" class="small"> - Open dislocation of jaw</text>
         <line x1="120" y1="180" x2="135" y2="180" class="line_style"></line>
 
         <text x="50" y="225" class="parent_nodes">940-949</text>
-        <text x="170" y="220" class="small"> - Burns</text>
+        <text x="150" y="220" class="small"> - Burns</text>
         <line x1="70" y1="230" x2="70" y2="250" class="line_style"></line>
         <line x1="70" x2="105" y1="250" y2="250" class="line_style"></line>
 
         <text x="110" y="260" class="parent_nodes">941</text>
-        <text x="170" y="255" class="small"> - Burn of face, head, and neck</text>
+        <text x="160" y="255" class="small"> - Burn of face, head, and neck</text>
         <line x1="120" y1="265" x2="120" y2="355" class="line_style"></line>
 
         <text x="140" y="295" class="leaf_nodes">941.01</text>
-        <text x="240" y="290" class="small"> - Burn of unspecified degree of ear</text>
+        <text x="220" y="290" class="small"> - Burn of unspecified degree of ear</text>
         <line x1="120" y1="285" x2="135" y2="285" class="line_style"></line>
 
         <text x="140" y="330" class="leaf_nodes">941.02</text>
-        <text x="240" y="325" class="small"> - Burn of unspecified degree of eye</text>
+        <text x="220" y="325" class="small"> - Burn of unspecified degree of eye</text>
         <line x1="120" y1="320" x2="135" y2="320" class="line_style"></line>
 
         <text x="140" y="365" class="leaf_nodes">941.03</text>
-        <text x="240" y="360" class="small"> - Burn of unspecified degree of lip(s)</text>
+        <text x="220" y="360" class="small"> - Burn of unspecified degree of lip(s)</text>
         <line x1="120" y1="355" x2="135" y2="355" class="line_style"></line>
       </svg>
     </div>
 
     <div id="slide-2" class="slide">
-        <svg class="tutorial-icd9-tree" id="slide-2-icd9" style="font-size:30px; width:50%; color:#545454;">
-            <style>
-              .text_style { fill: #696969; }
-              .parent_nodes { fill: #2098D1; }
-              .leaf_nodes { fill: #29AB87 }
-              .small { font-size: 20px; fill: #696969 }
-              .line_style { stroke:#696969; }
-            </style>
+        <svg class="tutorial-icd9-tree" id="slide-2-icd9">
             <text x="0" y="50" class="parent_nodes">800-999</text>
-            <text x="120" y="45" class="small"> (122)</text>
+            <text x="100" y="45" class="small"> (122)</text>
             <line x1="20" y1="55" x2="20" y2="215" class="line_style"></line>
             <line x1="20" x2="45" y1="75" y2="75" class="line_style"></line>
             <line x1="20" y1="215" x2="45" y2="215" class="line_style"></line>
     
             <text x="50" y="85" class="parent_nodes">830-839</text>
-            <text x="170" y="80" class="small"> (38)</text>
+            <text x="150" y="80" class="small"> (38)</text>
             <line x1="70" y1="90" x2="70" y2="110" class="line_style"></line>
             <line x1="70" x2="105" y1="110" y2="110" class="line_style"></line>
     
             <text x="110" y="120" class="parent_nodes">830</text>
-            <text x="170" y="115" class="small"> (38)</text>
+            <text x="160" y="115" class="small"> (38)</text>
             <line x1="120" y1="130" x2="120" y2="180" class="line_style"></line>
     
             <text x="140" y="155" class="leaf_nodes">830.0</text>
-            <text x="230" y="150" class="small"> (12)</text>
+            <text x="210" y="150" class="small"> (12)</text>
             <line x1="120" y1="145" x2="135" y2="145" class="line_style"></line>
     
             <text x="140" y="190" class="leaf_nodes">830.1</text>
-            <text x="230" y="185" class="small"> (26)</text>
+            <text x="210" y="185" class="small"> (26)</text>
             <line x1="120" y1="180" x2="135" y2="180" class="line_style"></line>
     
             <text x="50" y="225" class="parent_nodes">940-949</text>
-            <text x="170" y="220" class="small"> (84)</text>
+            <text x="150" y="220" class="small"> (84)</text>
             <line x1="70" y1="230" x2="70" y2="250" class="line_style"></line>
             <line x1="70" x2="105" y1="250" y2="250" class="line_style"></line>
     
             <text x="110" y="260" class="parent_nodes">941</text>
-            <text x="170" y="255" class="small"> (84)</text>
+            <text x="160" y="255" class="small"> (84)</text>
             <line x1="120" y1="265" x2="120" y2="355" class="line_style"></line>
     
             <text x="140" y="295" class="leaf_nodes">941.01</text>
-            <text x="240" y="290" class="small"> (27)</text>
+            <text x="220" y="290" class="small"> (27)</text>
             <line x1="120" y1="285" x2="135" y2="285" class="line_style"></line>
     
             <text x="140" y="330" class="leaf_nodes">941.02</text>
-            <text x="240" y="325" class="small"> (35)</text>
+            <text x="220" y="325" class="small"> (35)</text>
             <line x1="120" y1="320" x2="135" y2="320" class="line_style"></line>
     
             <text x="140" y="365" class="leaf_nodes">941.03</text>
-            <text x="240" y="360" class="small"> (22)</text>
+            <text x="220" y="360" class="small"> (22)</text>
             <line x1="120" y1="355" x2="135" y2="355" class="line_style"></line>
           </svg>
           <div class="slide-text-1">
@@ -189,7 +176,7 @@
           </div>
     </div>
     <div id="slide-3" class="slide">
-      <img src="/static/images/ICD9_Tree_example.png" height="100%" style="float:right;">
+      <img src="/static/images/ICD9_Tree_example.png" height="100%" style="float:right; margin-right: 10%;">
       <div class="slide-text-1">
           <h3>How we Visualize the Hierarchy?</h3>
           <p>If we visualize the ICD9 codes as a hierarchical tree, we can represent the different codes
@@ -199,8 +186,8 @@
       </div>
     </div>
     <div id="slide-4" class="slide">
-      <h3>Data Format and Upload</h3>
       <div class="slide-text-1">
+        <h3>Data Format</h3>
         <p>Create and format your csv file with two columns. Use column names "ICD 9 Code" and "counts" (both are case sensitive).
           When uploading counts, only include the leaf (billable) code counts in your dataset. VEDx will automatically propagate
           the counts to the parents.
@@ -232,9 +219,9 @@
       </table>
       </div>
       <div class="slide-text-2">
-        <br>
+          <h3>Upload CSV</h3>
         <p>Upload your CSV file with ICD9 codes and counts using the menu in the upper left corner and then hit submit.</p>
-        <img src="/static/images/upload_csv_img.png">
+        <img src="/static/images/upload_csv.png">
       </div>
     </div>
     <div id="slide-5" class="slide">

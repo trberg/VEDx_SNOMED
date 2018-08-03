@@ -5,7 +5,7 @@ html, body {
     margin:0; 
     padding:0; 
     overflow:hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 html { font-size: 100%; }
@@ -13,13 +13,17 @@ body { font-size: 1em; }
 h1 {
     margin-left: 500px;
     align-self: center;
-    font-size: 3em; 
+    font-size: 3em;
 }
+h2 { font-family: 'Open Sans', sans-serif; }
+h3 { font-family: 'Open Sans', sans-serif; }
+h4 { font-family: 'Open Sans', sans-serif; }
 
 table {
     width: 70%; 
     border: 2px solid #696969;
     margin-bottom: 15px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 table th {
@@ -51,27 +55,30 @@ hr {
     margin-bottom: 5px;
 }
 
-.main_text {
+.ve_text {
     font-family: 'Raleway', sans-serif;
-    font-size: 80px;
-    font-weight: 900;
+    font-size: 5em;
+    font-weight: 500;
     color: #166a92;
+    letter-spacing: -5px;
 }
 
-.viz_text {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 80px;
-    font-weight: 900;
+.d_text {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 5em;
     color: #545454;
 }
 
 .x_text {
-    font-size: 90px;
-    color: #166a92;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 6em;
+    color: #545454;
     margin-left: -5px;
 }
 
 .subcaption_text {
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 1em;
     color: #696969;
     margin-top: -10px;
@@ -80,11 +87,11 @@ hr {
 .slideshow {
     display: none;
     margin-top: 25px;
-    padding: 30px 7% 30px 7%;
-    height: 50%;
+    padding: 30px 3% 30px 3%;
+    height: 60%;
     color: #696969;
     position: static;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 .slide_btn {
@@ -103,8 +110,9 @@ hr {
 
 .slideshow .slide .slide-text-1 {
     float: left;
-    width: 40%;
+    width: 50%;
     padding-left: 2%;
+    font-family: 'Raleway', sans-serif;
 }
 
 
@@ -112,26 +120,33 @@ hr {
     float: right;
     padding-left: 2%;
     width: 40%;
+    font-family: 'Raleway', sans-serif;
 }
 
 .slideshow .slide .slide-text-3 {
     float: left;
     padding-left: 2%;
     width: 50%;
+    font-family: 'Raleway', sans-serif;
 }
 
 .tutorial-icd9-tree {
+    padding-left: 1%;
     height: 100%;
-
+    width: 40%;
 }
+.text_style { fill: #696969; }
+.parent_nodes { fill: #2098D1; font-size: 1.6em;}
+.leaf_nodes { fill: #29AB87; font-size: 1.6em; }
+.small { font-size: 1em; fill: #696969; font-family: 'Open Sans', sans-serif; }
+.line_style { stroke:#696969; }
 
 .tutorial-icd9-inter-tree {
     height: 90%;
     width: 50%;
     float: right;
-    padding: 2%;
+    padding: 2% 2% 0% 2%;
 }
-
 
 .masthead {
     height: 100%;
@@ -164,6 +179,7 @@ hr {
     box-shadow: 4px 3px #D0D0D0;
     border: 1px solid #A9A9A9;
     border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
 }
 
 .column {
@@ -178,7 +194,7 @@ box {
 }
 
 button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.1em;
     color: #696969;
     background-color: #e1e1e1;
@@ -224,12 +240,11 @@ button:active {
 }
 
 .node rect {
-    width: 30px;
-    height: 10px;
+    cursor: move;
 }
 
 .node text { 
-    font: 12px Lato; 
+    cursor: move;
 }
 
 .link {
