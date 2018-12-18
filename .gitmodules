@@ -1,0 +1,6 @@
+[submodule "DxCodeHandler"]
+	path = DxCodeHandler
+	url = https://github.com/UWMooneyLab/DxCodeHandler.git
+[submodule "static/packages/saveSvgAsPng"]
+	path = static/packages/saveSvgAsPng
+	url = https://github.com/exupero/saveSvgAsPng.git

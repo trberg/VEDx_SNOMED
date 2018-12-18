@@ -1,5 +1,9 @@
-import { circleSize, sizeWeightCalc, circleXLocation, circleYLocation, circleMouseover, circleMouseout, circleChildRetract } from "./circles.js";
+import { 
+    circleSize, sizeWeightCalc, 
+    circleXLocation, circleYLocation, circleMouseover, 
+    circleMouseout, circleChildRetract } from "./circles.js";
 import {linkWidth} from "./links.js";
+import { updateSlider } from "./sliders.js"
 
 let tree_configs,
     sizeWeight,
@@ -9,7 +13,8 @@ let tree_configs,
     rectHeight,
     width,
     height,
-    margin;
+    margin,
+    sizes = [];
 
 // set configuration values
 const loadConfigs = (location) => {
@@ -48,8 +53,8 @@ const loadConfigs = (location) => {
         configs.sizeWeight = 0.05;
     
         // add rectangles for label containers
-        configs.rectWidth = configs.width*.13 //120; //screen.width*0.09;
-        configs.rectHeight = configs.width*0.05 //50; //screen.width*0.045;
+        configs.rectWidth = configs.width*.15 //120; //screen.width*0.09;
+        configs.rectHeight = configs.width*0.06 //50; //screen.width*0.045;
     
         // set default season value
         configs.labelSize = 450;
@@ -74,6 +79,10 @@ const loadConfigs = (location) => {
         // set default season value
         configs.labelSize = 450;
     }
+}
+
+export function getConfigs() {
+    return tree_configs;
 }
 
 // ************** Generate the tree diagram	 *****************
@@ -104,6 +113,8 @@ function update(root, location) {
     var nodes = tree.nodes(root).reverse(),
         links = tree.links(nodes);
 
+    
+    
     tree_configs.sizeWeight = sizeWeightCalc(nodes, tree_configs);
 
     // Normalize for fixed-depth.
@@ -116,7 +127,7 @@ function update(root, location) {
   
   
     // Calculate the x-axis values
-    nodes.forEach(function(d) { return circleXLocation(d, nodes, tree_configs); });
+    nodes.forEach(function(d) { d.x = circleXLocation(d, nodes, tree_configs); });
   
 
     // Enter the nodes.
@@ -127,19 +138,19 @@ function update(root, location) {
         .attr("transform", function(d) { 
         return "translate(" + d.x + "," + d.y + ")"; });
 
-    
+
     // add circles to the nodes and calculate size and color
     // add interaction features to circles
     nodeEnter.append("circle")
-      .attr("r", function(d) { return circleSize(d, tree_configs); })
+      .attr("r", function(d) { sizes.push(d.size); return circleSize(d, tree_configs); })
       .attr("id", function(d) { return "circle" + d.id; })
       .style("stroke", function(d) { return color(d.name.replace(/ .*/, "")); })
       .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
       //.on("dblclick", circledblClick(tree_configs) )
       .on("click", labelNode)
       .on("mouseover", function(d) { circleMouseover(d, tree_configs) })
-      .on("mouseout", function(d) { circleMouseout(d, tree_configs) })
-      .on("contextmenu", function(d) { circleChildRetract(d, tree_configs) });
+      .on("mouseout", function(d) { circleMouseout(d, tree_configs) });
+      //.on("contextmenu", function(d) { circleChildRetract(d, tree_configs) });
 
     // Declare the links…
     var link = svg.selectAll("path.link")
@@ -157,59 +168,55 @@ function update(root, location) {
         .attr("d", diagonal);
 
     // Append label node
-    var label = nodeEnter.append("g")
+    nodeEnter.append("g")
         .attr("transform", function(d) {
             return "translate(" + 0 + "," + 0 + ")"; })
         .attr("id", function(d) { return "label" + d.id; })
         .attr("labeled", false)
         .call(d3.behavior.drag()
-            .on("drag", dragged));
+            //.on("start", dragstart)
+            .on("drag", dragged) );
+            //.on("end", dragend));
 }
 
 // add the description of the code to the label
 function addText() {
     
-    let labelEnter = d3.select(this.parentNode);
 
-    var configs = {
-        "width": rectWidth,
-        "height": rectHeight,
-        "shape":"square",
-        "valign" :"middle",
-        "align": "middle",
-        "padding": 3,
-        "resize": true
-    }
-    //.text(function(d) { return d.description + "   " + d.name; })
-    labelEnter.append("text")
-        .attr("id", function(d) { return "node" + d.id; })
-        .attr("x", function(d) { return labelX()+3; })
-        .attr("y", function(d) { return labelY(d, sizeWeight)+3; })
-        .each(function(d) {
-            /*d3.select("text#textnode" + d.id).append("tspan")
-                .text("Code: " + d.name)
-                .attr("x", labelX()+3)
-                .attr("dy", "10px");*/
-
-            d3plus.textwrap()
-                .config(configs)
-                .size([5,20])
-                .container(d3.select(this))
-                .text({ value: d.description })
-                .draw();
-            });
+    var cur_node = d3.select(this.parentNode).data()[0]
+    
+    var data = [
+        {
+            text: cur_node.description
+        }
+    ]
+    //console.log(d3.select(this.parentNode).data()[0].description);
+    new d3plus.TextBox()
+                .data(data)
+                .fontResize(true)
+                .width(rectWidth)
+                .height(rectHeight)
+                .verticalAlign("middle")
+                .textAnchor("middle")
+                .fontFamily("Open Sans")
+                .x( function() { return labelX(); })
+                .y( function() { return labelY(cur_node, sizeWeight); })
+                .padding(5)
+                .select(this.parentNode)
+                .render();
   }
 
 // adds and removes the node labels onclick
 function labelNode() {
     
     let labelEnter = d3.select(this.parentNode).select("g");
+    let lineEnter = d3.select(this.parentNode);
     
     if (labelEnter.attr("labeled") == "false") {
-    
+        
         // add rect as label
         labelEnter.append("rect")
-        .attr("id", function(d) { return  "node" + d.id; })
+            .attr("id", function(d) { return  "node" + d.id; })
             .transition().duration(200)
             .attr('x', function(d) { return labelX(); })
             .attr('y', function(d) { return labelY(d); })
@@ -221,7 +228,7 @@ function labelNode() {
             .each("end", addText);
         
         // add line from circle to label
-        labelEnter.append("line")
+        lineEnter.append("line")
         .attr("id", function(d) { return "node" + d.id; })
         .attr("x1", 0)
         .attr("y1", 0)
@@ -234,6 +241,7 @@ function labelNode() {
             .style("stroke-width", .5);
         
         labelEnter.attr("labeled", true);
+        lineEnter.attr("labeled", true);
     
     }
     else {
@@ -244,15 +252,16 @@ function labelNode() {
         .style("height", 0)
         .remove();
 
-      labelEnter.select("text").remove();
+      labelEnter.selectAll("g.d3plus-textBox").remove();
 
-      labelEnter.select("line")
+      lineEnter.select("line")
       .transition(100)
       .attr("x2", 0)
       .attr("y2", 0)
       .remove();
 
       labelEnter.attr("labeled", false);
+      lineEnter.attr("labeled", false);
     }
 }
 
@@ -284,11 +293,6 @@ const labelY = (d) => {
         return output_value;
     }
     else {
-        //console.log(output_value);
-        //console.log(tree_configs.rectHeight);
-        //console.log(output_value + tree_configs.rectHeight);
-        //console.log((tree_configs.height/6) - (tree_configs.rectHeight + 5))
-        //return (tree_configs.height/6) - (tree_configs.rectHeight + 5);
         return zero - tree_configs.rectHeight;
     }
 }
@@ -304,17 +308,18 @@ const lineX = () => {
 function dragged(d) {
 
     var x = d3.event.x - (tree_configs.rectWidth/2),
-        y = d3.event.y - 20;
+        y = d3.event.y - (tree_configs.rectHeight);
+    
 
-    // drag the rect
-    d3.select("rect#node" + d.id)
-        .attr("x", d.x = x)
-        .attr("y", d.y = y);
+    // drag the node that contains the rect object and the text object.
+    d3.select("g#label" + d.id)
+        .attr("transform", function(d) {  return "translate("+d3.event.x+","+y+")";  });
+    
 
     // drag the end of the line and recalculate
     d3.select("line#node" + d.id)
         .attr("x2", function() {
-            if (labelCenter()) {
+            if (labelCenter(this)) {
                 return 0;
             }
             else if (labelBelow()){
@@ -335,74 +340,87 @@ function dragged(d) {
         })
         .attr("y2", function() { 
             if (labelCenter()) {
+                console.log("center");
                 return 0;
             }
             else if (labelBelow()){
-                return y;
+                console.log("below");
+                return y + labelY(d);
             }
             else if (labelAbove()){
-                return y + rectHeight;
+                console.log("above");
+                return y + rectHeight + labelY(d);
             }
             else if (labelLeft()) {
-                return y + rectHeight/2;
+                console.log("left");
+                return y + rectHeight/2 + labelY(d);
             }
             else if (labelRight()) {
-                return y + rectHeight/2;
+                console.log("right");
+                return y + rectHeight/2 + labelY(d);
             }
             else {
                 return d3.event.y;
             }
         });
 
-    // drag the text in the rect
-    d3.select("text#node" + d.id)
-        .attr("y", y + 3)
-        .selectAll("tspan")
-            .attr("x", x + (rectWidth)/2);
-
 }
 
-function labelCenter() {
-    var x = d3.event.x - (tree_configs.rectWidth/2),
-        y = d3.event.y - 20;
 
-    var calc = ((x < 0 && y < 0) && 
-    (y + tree_configs.rectHeight > 0 && x + tree_configs.rectWidth > 0));
+/*
+    These functions detect the location of the label in relation to the center the circle they are labeling
+    These are called when an active label is being dragged to calculate the location of the end of the connecting
+    line between the center of the circle and the label.
+*/
+function labelCenter() {
+
+    var x = d3.event.x,
+        y = d3.event.y;
+
+    var calc = ( 
+        (y - tree_configs.rectHeight/2 < 0
+        &&
+        y + tree_configs.rectHeight/2 > 0 )
+        && 
+        (
+            x - (tree_configs.rectWidth/2) < 0
+            &&
+            x + (tree_configs.rectWidth/2) > 0
+        )
+    );
     return calc;
 }
 
 function labelLeft(){
-    var x = d3.event.x - (tree_configs.rectWidth/2),
-        y = d3.event.y - 20;
+    var x = d3.event.x;
 
-    var calc = (x < 0 && x + tree_configs.rectWidth < 0);
+    var calc = (x - (tree_configs.rectWidth/2) < 0);
     return calc;
 }
 
 function labelRight(){
-    var x = d3.event.x - (tree_configs.rectWidth/2),
-        y = d3.event.y - 20;
+    var x = d3.event.x;
 
-    var calc = (x > 0 && x + tree_configs.rectWidth > 0);
+    var calc = (x + (tree_configs.rectWidth/2) > 0);
     return calc;
 }
 
 function labelAbove(){
-    var x = d3.event.x - (tree_configs.rectWidth/2),
-        y = d3.event.y - 20;
+    var y = d3.event.y;
 
-    var calc = (y < 0 && y + tree_configs.rectHeight < 0);
+    var calc = (y + tree_configs.rectHeight/2 < 0);
     return calc;
 }
 
 function labelBelow(){
-    var x = d3.event.x - (tree_configs.rectWidth/2),
-        y = d3.event.y - 20;
+    var y = d3.event.y;
 
-    var calc = (y > 0 && y + tree_configs.rectHeight > 0);
+    var calc = (y - tree_configs.rectHeight/2 > 0);
     return calc;
 }
 
+
+// loads the configureation variables and initiates the tree
 export async function tree(root, location) {
     await loadConfigs(location);
     // set configurations
@@ -415,6 +433,7 @@ export async function tree(root, location) {
     rectWidth = configs.rectWidth,
     rectHeight = configs.rectHeight;
 
-    update(root, location);
+    await update(root, location);
+    updateSlider(sizes);
 }
 

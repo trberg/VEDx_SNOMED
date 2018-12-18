@@ -2,6 +2,8 @@
 import { export_init } from "./export.js";
 import { tree } from "./tree.js";
 import { startTutorial, loadExample } from "./tutorial.js";
+import { loadSlider } from "./sliders.js";
+import { circleFilter } from "./circles.js";
 
 // set the global variable values
 let configs = {},
@@ -19,6 +21,10 @@ const uploadbutton = () => {
 
   // add event listener to visible submit button
   document.getElementById('submitButton').addEventListener('click', submitFile);
+
+  // add event listener to filter slider
+  document.getElementById('min_slider').addEventListener('mouseup', circleFilter);
+  document.getElementById('max_slider').addEventListener('mouseup', circleFilter);
 
   // listener for when file is uploaded before submission
   var fileupload = $("#fileid");
@@ -86,19 +92,20 @@ function loadTutorial() {
 
 const init = async () => {
 
-  // initiate export features
-  export_init();
+  // initiate export file function
+  export_init()
 
   // initiate upload file features
   uploadbutton();
+
+  // initiate sliders
+  loadSlider();
 
   // tutorial activation
   loadTutorial();
 
   // format front page
-  logo()
-  // load the data and render tree
-  // await loadData();
+  logo();
 }
 
 $(init);
