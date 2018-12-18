@@ -65,7 +65,7 @@ def description_handle(code):
     if "Other Than Motorcycle" in descr:
         descr = descr.replace(" in Motor Vehicle Other Than Motorcycle", "")
         descr = descr.replace(" of Motor Vehicle Other Than Motorcycle", "")
-        print descr
+        ##print descr
     
     if "--" in descr:
         descr = descr.split(" -- ")[0]
