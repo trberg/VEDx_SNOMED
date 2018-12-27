@@ -7,7 +7,7 @@
     {
       "name": "800-999", 
       "parent": null, 
-      "description": "INJURY AND POISONING ", 
+      "description": "Injury and Poisoning ", 
       "depth": 1, 
       "children": [
         {
@@ -59,7 +59,7 @@
           "size": 84
         }, 
         {
-          "description": "DISLOCATION ", 
+          "description": "Dislocation ", 
           "parent": "800-999", 
           "name": "830-839", 
           "depth": 2, 

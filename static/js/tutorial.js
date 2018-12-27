@@ -16,7 +16,7 @@ export function loadExample() {
 }
 
 function loadExampleData() {
-    d3.json("/static/data/example_graph.json", function(error, data) {
+    d3.json("/static/data/summer_dataset.json", function(error, data) {
         if (error) throw error;
         tree(data, "main");
       });

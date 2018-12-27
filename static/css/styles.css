@@ -282,6 +282,10 @@ section.range-slider input {
     padding: 0;
 }
 
+section.range-slider.radio-input {
+    text-align: left;
+}
+
 section.range-slider input::-webkit-slider-thumb {
     pointer-events: all;
     position: relative;

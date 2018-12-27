@@ -1,0 +1,2471 @@
+{
+  "description": "ICD 9 Root", 
+  "parent": "null", 
+  "depth": "null", 
+  "size": 5089777, 
+  "children": [
+    {
+      "name": "800-999", 
+      "parent": null, 
+      "description": "INJURY AND POISONING ", 
+      "depth": 1, 
+      "children": [
+        {
+          "description": "CERTAIN TRAUMATIC COMPLICATIONS AND UNSPECIFIED INJURIES ", 
+          "parent": "800-999", 
+          "name": "958-959", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Certain early complications of trauma", 
+              "parent": "958-959", 
+              "name": "958", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 12790, 
+                  "name": "958.3", 
+                  "parent": "958", 
+                  "description": "Posttraumatic wound infection not elsewhere classified"
+                }
+              ], 
+              "size": 23563
+            }, 
+            {
+              "description": "Injury, other and unspecified", 
+              "parent": "958-959", 
+              "name": "959", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 25206, 
+                  "name": "959.2", 
+                  "parent": "959", 
+                  "description": "Shoulder and upper arm injury"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 57205, 
+                  "name": "959.7", 
+                  "parent": "959", 
+                  "description": "Knee, leg, ankle, and foot injury"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 24655, 
+                  "name": "959.4", 
+                  "parent": "959", 
+                  "description": "Hand, except finger injury"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 16142, 
+                  "name": "959.6", 
+                  "parent": "959", 
+                  "description": "Hip and thigh injury"
+                }, 
+                {
+                  "description": "Trunk", 
+                  "parent": "959", 
+                  "name": "959.1", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 32593, 
+                      "name": "959.11", 
+                      "parent": "959.1", 
+                      "description": "Other injury of chest wall"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 9849, 
+                      "name": "959.12", 
+                      "parent": "959.1", 
+                      "description": "Other injury of abdomen"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 66804, 
+                      "name": "959.19", 
+                      "parent": "959.1", 
+                      "description": "Other injury of other sites of trunk"
+                    }
+                  ], 
+                  "size": 112979
+                }, 
+                {
+                  "description": "Head, face and neck", 
+                  "parent": "959", 
+                  "name": "959.0", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 80681, 
+                      "name": "959.01", 
+                      "parent": "959.0", 
+                      "description": "Head injury, unspecified"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 83457, 
+                      "name": "959.09", 
+                      "parent": "959.0", 
+                      "description": "Injury of face and neck"
+                    }
+                  ], 
+                  "size": 164138
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 58015, 
+                  "name": "959.8", 
+                  "parent": "959", 
+                  "description": "Other specified sites, including multiple injury"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 9425, 
+                  "name": "959.5", 
+                  "parent": "959", 
+                  "description": "Finger injury"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 53207, 
+                  "name": "959.9", 
+                  "parent": "959", 
+                  "description": "Unspecified site injury"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 35897, 
+                  "name": "959.3", 
+                  "parent": "959", 
+                  "description": "Elbow, forearm, and wrist injury"
+                }
+              ], 
+              "size": 559367
+            }
+          ], 
+          "size": 582930
+        }, 
+        {
+          "depth": 2, 
+          "size": 16439, 
+          "name": "930-939", 
+          "parent": "800-999", 
+          "description": "EFFECTS OF FOREIGN BODY ENTERING THROUGH ORIFICE "
+        }, 
+        {
+          "description": "CRUSHING INJURY ", 
+          "parent": "800-999", 
+          "name": "925-929", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 9449, 
+              "name": "927", 
+              "parent": "925-929", 
+              "description": "Crushing injury of upper limb"
+            }
+          ], 
+          "size": 13640
+        }, 
+        {
+          "depth": 2, 
+          "size": 18743, 
+          "name": "900-904", 
+          "parent": "800-999", 
+          "description": "INJURY TO BLOOD VESSELS "
+        }, 
+        {
+          "description": "TOXIC EFFECTS OF SUBSTANCES CHIEFLY NONMEDICINAL AS TO SOURCE ", 
+          "parent": "800-999", 
+          "name": "980-989", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 9512, 
+              "name": "989", 
+              "parent": "980-989", 
+              "description": "Toxic effect of other substances, chiefly nonmedicinal as to source"
+            }, 
+            {
+              "depth": 3, 
+              "size": 28083, 
+              "name": "980", 
+              "parent": "980-989", 
+              "description": "Toxic effect of alcohol"
+            }
+          ], 
+          "size": 43318
+        }, 
+        {
+          "description": "Superficial Injury", 
+          "parent": "800-999", 
+          "name": "910-919", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 12736, 
+              "name": "916", 
+              "parent": "910-919", 
+              "description": "Superficial injury of hip thigh leg and ankle"
+            }, 
+            {
+              "depth": 3, 
+              "size": 15566, 
+              "name": "910", 
+              "parent": "910-919", 
+              "description": "Superficial injury of face neck and scalp except eye"
+            }, 
+            {
+              "depth": 3, 
+              "size": 21709, 
+              "name": "919", 
+              "parent": "910-919", 
+              "description": "Superficial injury of other multiple and unspecified sites"
+            }, 
+            {
+              "description": "Superficial injury of eye and adnexa", 
+              "parent": "910-919", 
+              "name": "918", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 16789, 
+                  "name": "918.1", 
+                  "parent": "918", 
+                  "description": "Superficial injury of cornea"
+                }
+              ], 
+              "size": 19681
+            }
+          ], 
+          "size": 98158
+        }, 
+        {
+          "description": "Burns", 
+          "parent": "800-999", 
+          "name": "940-949", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Burn of wrist(s) and hand(s)", 
+              "parent": "940-949", 
+              "name": "944", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8531, 
+                  "name": "944.2", 
+                  "parent": "944", 
+                  "description": "Blisters, epidermal loss [second degree]"
+                }
+              ], 
+              "size": 16150
+            }, 
+            {
+              "depth": 3, 
+              "size": 16888, 
+              "name": "943", 
+              "parent": "940-949", 
+              "description": "Burn of upper limb, except wrist and hand"
+            }, 
+            {
+              "depth": 3, 
+              "size": 12111, 
+              "name": "942", 
+              "parent": "940-949", 
+              "description": "Burn of trunk"
+            }, 
+            {
+              "depth": 3, 
+              "size": 14322, 
+              "name": "941", 
+              "parent": "940-949", 
+              "description": "Burn of face, head, and neck"
+            }, 
+            {
+              "depth": 3, 
+              "size": 23995, 
+              "name": "949", 
+              "parent": "940-949", 
+              "description": "Burn, unspecified"
+            }, 
+            {
+              "depth": 3, 
+              "size": 14049, 
+              "name": "946", 
+              "parent": "940-949", 
+              "description": "Burns of multiple specified sites"
+            }, 
+            {
+              "depth": 3, 
+              "size": 21512, 
+              "name": "945", 
+              "parent": "940-949", 
+              "description": "Burn of lower limb(s)"
+            }
+          ], 
+          "size": 127871
+        }, 
+        {
+          "description": "DISLOCATION ", 
+          "parent": "800-999", 
+          "name": "830-839", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 31407, 
+              "name": "836", 
+              "parent": "830-839", 
+              "description": "Dislocation of knee"
+            }, 
+            {
+              "description": "Dislocation of shoulder", 
+              "parent": "830-839", 
+              "name": "831", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 11206, 
+                  "name": "831.0", 
+                  "parent": "831", 
+                  "description": "Closed dislocation"
+                }
+              ], 
+              "size": 11561
+            }
+          ], 
+          "size": 66862
+        }, 
+        {
+          "description": "INTERNAL INJURY OF THORAX, ABDOMEN, AND PELVIS ", 
+          "parent": "800-999", 
+          "name": "860-869", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 8541, 
+              "name": "865", 
+              "parent": "860-869", 
+              "description": "Injury to spleen"
+            }, 
+            {
+              "depth": 3, 
+              "size": 9749, 
+              "name": "861", 
+              "parent": "860-869", 
+              "description": "Injury to heart and lung"
+            }, 
+            {
+              "depth": 3, 
+              "size": 16023, 
+              "name": "860", 
+              "parent": "860-869", 
+              "description": "Traumatic pneumothorax and hemothorax"
+            }
+          ], 
+          "size": 67697
+        }, 
+        {
+          "description": "LATE EFFECTS OF INJURIES, POISONINGS, TOXIC EFFECTS, AND OTHER EXTERNAL CAUSES ", 
+          "parent": "800-999", 
+          "name": "905-909", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 9360, 
+              "name": "909", 
+              "parent": "905-909", 
+              "description": "Late effects of other and unspecified external causes"
+            }, 
+            {
+              "description": "Late effects of injuries to the nervous system", 
+              "parent": "905-909", 
+              "name": "907", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 15665, 
+                  "name": "907.2", 
+                  "parent": "907", 
+                  "description": "Late effect of spinal cord injury"
+                }
+              ], 
+              "size": 57626
+            }, 
+            {
+              "depth": 3, 
+              "size": 12442, 
+              "name": "908", 
+              "parent": "905-909", 
+              "description": "Late effects of other and unspecified injuries"
+            }, 
+            {
+              "depth": 3, 
+              "size": 21551, 
+              "name": "906", 
+              "parent": "905-909", 
+              "description": "Late effects of injuries to skin and subcutaneous tissues"
+            }, 
+            {
+              "description": "Late effects of musculoskeletal and connective tissue injuries", 
+              "parent": "905-909", 
+              "name": "905", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 21873, 
+                  "name": "905.2", 
+                  "parent": "905", 
+                  "description": "Late effect of fracture of upper extremities"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 36456, 
+                  "name": "905.4", 
+                  "parent": "905", 
+                  "description": "Late effect of fracture of lower extremities"
+                }
+              ], 
+              "size": 92080
+            }
+          ], 
+          "size": 193059
+        }, 
+        {
+          "description": "COMPLICATIONS OF SURGICAL AND MEDICAL CARE, NOT ELSEWHERE CLASSIFIED ", 
+          "parent": "800-999", 
+          "name": "996-999", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Other complications of procedures, NEC", 
+              "parent": "996-999", 
+              "name": "998", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 13627, 
+                  "name": "998.2", 
+                  "parent": "998", 
+                  "description": "Accidental puncture or laceration during a procedure, not elsewhere classified"
+                }, 
+                {
+                  "description": "Other specified complications of procedures, not elsewhere classified", 
+                  "parent": "998", 
+                  "name": "998.8", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 8445, 
+                      "name": "998.89", 
+                      "parent": "998.8", 
+                      "description": "Other specified complications of procedures not elsewhere classified"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 8485, 
+                      "name": "998.83", 
+                      "parent": "998.8", 
+                      "description": "Non-healing surgical wound"
+                    }
+                  ], 
+                  "size": 18467
+                }, 
+                {
+                  "description": "Postoperative infection", 
+                  "parent": "998", 
+                  "name": "998.5", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 31691, 
+                      "name": "998.59", 
+                      "parent": "998.5", 
+                      "description": "Other postoperative infection"
+                    }
+                  ], 
+                  "size": 35020
+                }, 
+                {
+                  "description": "Hemorrhage or hematoma or seroma complicating a procedure", 
+                  "parent": "998", 
+                  "name": "998.1", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 8653, 
+                      "name": "998.11", 
+                      "parent": "998.1", 
+                      "description": "Hemorrhage complicating a procedure"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 9484, 
+                      "name": "998.12", 
+                      "parent": "998.1", 
+                      "description": "Hematoma complicating a procedure"
+                    }
+                  ], 
+                  "size": 24461
+                }, 
+                {
+                  "description": "Disruption of wound", 
+                  "parent": "998", 
+                  "name": "998.3", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 10424, 
+                      "name": "998.32", 
+                      "parent": "998.3", 
+                      "description": "Disruption of external operation (surgical) wound"
+                    }
+                  ], 
+                  "size": 14436
+                }
+              ], 
+              "size": 113705
+            }, 
+            {
+              "description": "Complications peculiar to certain specified procedures", 
+              "parent": "996-999", 
+              "name": "996", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Complications of transplanted organ", 
+                  "parent": "996", 
+                  "name": "996.8", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 18118, 
+                      "name": "996.88", 
+                      "parent": "996.8", 
+                      "description": "Complications of transplanted organ, stem cell"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 42261, 
+                      "name": "996.85", 
+                      "parent": "996.8", 
+                      "description": "Complications of transplanted bone marrow"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 29496, 
+                      "name": "996.83", 
+                      "parent": "996.8", 
+                      "description": "Complications of transplanted heart"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 15685, 
+                      "name": "996.82", 
+                      "parent": "996.8", 
+                      "description": "Complications of transplanted liver"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 28439, 
+                      "name": "996.81", 
+                      "parent": "996.8", 
+                      "description": "Complications of transplanted kidney"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 14280, 
+                      "name": "996.84", 
+                      "parent": "996.8", 
+                      "description": "Complications of transplanted lung"
+                    }
+                  ], 
+                  "size": 187117
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 34125, 
+                  "name": "996.6", 
+                  "parent": "996", 
+                  "description": "Infection and inflammatory reaction due to internal prosthetic device, implant, and graft"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 13251, 
+                  "name": "996.5", 
+                  "parent": "996", 
+                  "description": "Mechanical complication of other specified prosthetic device, implant, and graft"
+                }, 
+                {
+                  "description": "Mechanical complication of internal orthopedic device, implant, and graft", 
+                  "parent": "996", 
+                  "name": "996.4", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 9095, 
+                      "name": "996.49", 
+                      "parent": "996.4", 
+                      "description": "Other mechanical complication of other internal orthopedic device, implant, and graft"
+                    }
+                  ], 
+                  "size": 19405
+                }, 
+                {
+                  "description": "Other complications of internal (biological) (synthetic) prosthetic device, implant, and graft", 
+                  "parent": "996", 
+                  "name": "996.7", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 11655, 
+                      "name": "996.78", 
+                      "parent": "996.7", 
+                      "description": "Other complications due to other internal orthopedic device, implant, and graft"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 8578, 
+                      "name": "996.73", 
+                      "parent": "996.7", 
+                      "description": "Other complications due to renal dialysis device, implant, and graft"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 16513, 
+                      "name": "996.74", 
+                      "parent": "996.7", 
+                      "description": "Other complications due to other vascular device, implant, and graft"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 8230, 
+                      "name": "996.79", 
+                      "parent": "996.7", 
+                      "description": "Other complications due to other internal prosthetic device, implant, and graft"
+                    }
+                  ], 
+                  "size": 65807
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 10570, 
+                  "name": "996.1", 
+                  "parent": "996", 
+                  "description": "Mechanical complication of other vascular device, implant, and graft"
+                }
+              ], 
+              "size": 346752
+            }, 
+            {
+              "depth": 3, 
+              "size": 15430, 
+              "name": "999", 
+              "parent": "996-999", 
+              "description": "Complications of medical care, not elsewhere classified"
+            }, 
+            {
+              "description": "Complications affecting specified body systems, not elsewhere classified", 
+              "parent": "996-999", 
+              "name": "997", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 9533, 
+                  "name": "997.3", 
+                  "parent": "997", 
+                  "description": "Respiratory complications"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 11205, 
+                  "name": "997.4", 
+                  "parent": "997", 
+                  "description": "Digestive system complications"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 11272, 
+                  "name": "997.1", 
+                  "parent": "997", 
+                  "description": "Cardiac complications, not elsewhere classified"
+                }
+              ], 
+              "size": 52531
+            }
+          ], 
+          "size": 528418
+        }, 
+        {
+          "description": "POISONING BY DRUGS, MEDICINAL AND BIOLOGICAL SUBSTANCES ", 
+          "parent": "800-999", 
+          "name": "960-979", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Poisoning by analgesics, antipyretics, and antirheumatics", 
+              "parent": "960-979", 
+              "name": "965", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 11847, 
+                  "name": "965.0", 
+                  "parent": "965", 
+                  "description": "Opiates and related narcotics"
+                }
+              ], 
+              "size": 19423
+            }, 
+            {
+              "depth": 3, 
+              "size": 9836, 
+              "name": "969", 
+              "parent": "960-979", 
+              "description": "Poisoning by psychotropic agents"
+            }, 
+            {
+              "description": "Poisoning by other and unspecified drugs and medicinal substances", 
+              "parent": "960-979", 
+              "name": "977", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 32916, 
+                  "name": "977.9", 
+                  "parent": "977", 
+                  "description": "Poisoning by unspecified drug or medicinal substance"
+                }
+              ], 
+              "size": 36287
+            }
+          ], 
+          "size": 85604
+        }, 
+        {
+          "description": "INTRACRANIAL INJURY, EXCLUDING THOSE WITH SKULL FRACTURE ", 
+          "parent": "800-999", 
+          "name": "850-854", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Intracranial injury of other and unspecified nature", 
+              "parent": "850-854", 
+              "name": "854", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 13466, 
+                  "name": "854.0", 
+                  "parent": "854", 
+                  "description": "Without mention of open intracranial wound"
+                }
+              ], 
+              "size": 16495
+            }, 
+            {
+              "depth": 3, 
+              "size": 25929, 
+              "name": "850", 
+              "parent": "850-854", 
+              "description": "Concussion"
+            }, 
+            {
+              "description": "Subarachnoid, subdural, and extradural hemorrhage, following injury", 
+              "parent": "850-854", 
+              "name": "852", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 9282, 
+                  "name": "852.2", 
+                  "parent": "852", 
+                  "description": "Subdural hemorrhage following injury without mention of open intracranial wound"
+                }
+              ], 
+              "size": 18269
+            }
+          ], 
+          "size": 74025
+        }, 
+        {
+          "description": "INJURY TO NERVES AND SPINAL CORD ", 
+          "parent": "800-999", 
+          "name": "950-957", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Spinal cord injury without evidence of spinal bone injury", 
+              "parent": "950-957", 
+              "name": "952", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 17009, 
+                  "name": "952.9", 
+                  "parent": "952", 
+                  "description": "Unspecified site of spinal cord injury without evidence of spinal bone injury"
+                }
+              ], 
+              "size": 29357
+            }, 
+            {
+              "depth": 3, 
+              "size": 18869, 
+              "name": "955", 
+              "parent": "950-957", 
+              "description": "Injury to peripheral nerve(s) of shoulder girdle and upper limb"
+            }
+          ], 
+          "size": 63898
+        }, 
+        {
+          "description": "FRACTURES ", 
+          "parent": "800-999", 
+          "name": "800-829", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Fracture of face bones", 
+              "parent": "800-829", 
+              "name": "802", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 16871, 
+                  "name": "802.4", 
+                  "parent": "802", 
+                  "description": "Closed fracture of malar and maxillary bones"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 11865, 
+                  "name": "802.2", 
+                  "parent": "802", 
+                  "description": "Mandible, closed"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 26586, 
+                  "name": "802.8", 
+                  "parent": "802", 
+                  "description": "Closed fracture of other facial bones"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 11368, 
+                  "name": "802.6", 
+                  "parent": "802", 
+                  "description": "Closed fracture of orbital floor (blow-out)"
+                }
+              ], 
+              "size": 90566
+            }, 
+            {
+              "depth": 3, 
+              "size": 21533, 
+              "name": "801", 
+              "parent": "800-829", 
+              "description": "Fracture of base of skull"
+            }, 
+            {
+              "description": "Fracture of rib(s), sternum, larynx, and trachea", 
+              "parent": "800-829", 
+              "name": "807", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 41736, 
+                  "name": "807.0", 
+                  "parent": "807", 
+                  "description": "Rib(s), closed"
+                }
+              ], 
+              "size": 47159
+            }, 
+            {
+              "description": "Fracture of vertebral column without mention of spinal cord injury", 
+              "parent": "800-829", 
+              "name": "805", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 19874, 
+                  "name": "805.4", 
+                  "parent": "805", 
+                  "description": "Closed fracture of lumbar vertebra without mention of spinal cord injury"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 16236, 
+                  "name": "805.2", 
+                  "parent": "805", 
+                  "description": "Closed fracture of dorsal [thoracic] vertebra without mention of spinal cord injury"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 9741, 
+                  "name": "805.6", 
+                  "parent": "805", 
+                  "description": "Closed fracture of sacrum and coccyx without mention of spinal cord injury"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 21608, 
+                  "name": "805.0", 
+                  "parent": "805", 
+                  "description": "Cervical, closed"
+                }
+              ], 
+              "size": 81066
+            }, 
+            {
+              "depth": 3, 
+              "size": 11006, 
+              "name": "806", 
+              "parent": "800-829", 
+              "description": "Fracture of vertebral column with spinal cord injury"
+            }, 
+            {
+              "description": "Fracture of pelvis", 
+              "parent": "800-829", 
+              "name": "808", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 9058, 
+                  "name": "808.2", 
+                  "parent": "808", 
+                  "description": "Closed fracture of pubis"
+                }, 
+                {
+                  "description": "Other specified part, closed", 
+                  "parent": "808", 
+                  "name": "808.4", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 9489, 
+                      "name": "808.43", 
+                      "parent": "808.4", 
+                      "description": "Multiple closed pelvic fractures with disruption of pelvic circle"
+                    }
+                  ], 
+                  "size": 17122
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 10989, 
+                  "name": "808.8", 
+                  "parent": "808", 
+                  "description": "Closed unspecified fracture of pelvis"
+                }
+              ], 
+              "size": 53402
+            }, 
+            {
+              "description": "Fracture of metacarpal bone(s)", 
+              "parent": "800-829", 
+              "name": "815", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Closed", 
+                  "parent": "815", 
+                  "name": "815.0", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 8183, 
+                      "name": "815.03", 
+                      "parent": "815.0", 
+                      "description": "Closed fracture of shaft of metacarpal bone(s)"
+                    }
+                  ], 
+                  "size": 23758
+                }
+              ], 
+              "size": 24991
+            }, 
+            {
+              "description": "Fracture of humerus", 
+              "parent": "800-829", 
+              "name": "812", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8039, 
+                  "name": "812.4", 
+                  "parent": "812", 
+                  "description": "Lower end, closed"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 17024, 
+                  "name": "812.2", 
+                  "parent": "812", 
+                  "description": "Shaft or unspecified part, closed"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 12159, 
+                  "name": "812.0", 
+                  "parent": "812", 
+                  "description": "Upper end, closed"
+                }
+              ], 
+              "size": 48746
+            }, 
+            {
+              "description": "Fracture of radius and ulna", 
+              "parent": "800-829", 
+              "name": "813", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Lower end, closed", 
+                  "parent": "813", 
+                  "name": "813.4", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 37251, 
+                      "name": "813.42", 
+                      "parent": "813.4", 
+                      "description": "Other closed fractures of distal end of radius (alone)"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 11963, 
+                      "name": "813.41", 
+                      "parent": "813.4", 
+                      "description": "Closed Colles' fracture"
+                    }
+                  ], 
+                  "size": 59955
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 8251, 
+                  "name": "813.2", 
+                  "parent": "813", 
+                  "description": "Shaft, closed"
+                }, 
+                {
+                  "description": "Unspecified part, closed", 
+                  "parent": "813", 
+                  "name": "813.8", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 9168, 
+                      "name": "813.81", 
+                      "parent": "813.8", 
+                      "description": "Closed fracture of unspecified part of radius (alone)"
+                    }
+                  ], 
+                  "size": 15519
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 20437, 
+                  "name": "813.0", 
+                  "parent": "813", 
+                  "description": "Upper end, closed"
+                }
+              ], 
+              "size": 110487
+            }, 
+            {
+              "depth": 3, 
+              "size": 10217, 
+              "name": "811", 
+              "parent": "800-829", 
+              "description": "Fracture of scapula"
+            }, 
+            {
+              "description": "Fracture of one or more phalanges of hand", 
+              "parent": "800-829", 
+              "name": "816", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Closed", 
+                  "parent": "816", 
+                  "name": "816.0", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 15773, 
+                      "name": "816.01", 
+                      "parent": "816.0", 
+                      "description": "Closed fracture of middle or proximal phalanx or phalanges of hand"
+                    }
+                  ], 
+                  "size": 24230
+                }
+              ], 
+              "size": 50342
+            }, 
+            {
+              "description": "Fracture of carpal bone(s)", 
+              "parent": "800-829", 
+              "name": "814", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Closed", 
+                  "parent": "814", 
+                  "name": "814.0", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 10011, 
+                      "name": "814.01", 
+                      "parent": "814.0", 
+                      "description": "Closed fracture of navicular [scaphoid] bone of wrist"
+                    }
+                  ], 
+                  "size": 14429
+                }
+              ], 
+              "size": 20987
+            }, 
+            {
+              "description": "Fracture of clavicle", 
+              "parent": "800-829", 
+              "name": "810", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 10918, 
+                  "name": "810.0", 
+                  "parent": "810", 
+                  "description": "Closed"
+                }
+              ], 
+              "size": 23862
+            }, 
+            {
+              "depth": 3, 
+              "size": 9651, 
+              "name": "818", 
+              "parent": "800-829", 
+              "description": "Ill-defined fractures of upper limb"
+            }, 
+            {
+              "description": "Fracture of one or more tarsal and metatarsal bones", 
+              "parent": "800-829", 
+              "name": "825", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Fracture of other tarsal and metatarsal bones, closed", 
+                  "parent": "825", 
+                  "name": "825.2", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 18759, 
+                      "name": "825.25", 
+                      "parent": "825.2", 
+                      "description": "Closed fracture of metatarsal bone(s)"
+                    }
+                  ], 
+                  "size": 39682
+                }
+              ], 
+              "size": 66407
+            }, 
+            {
+              "depth": 3, 
+              "size": 13426, 
+              "name": "827", 
+              "parent": "800-829", 
+              "description": "Other, multiple, and ill-defined fractures of lower limb"
+            }, 
+            {
+              "depth": 3, 
+              "size": 20945, 
+              "name": "820", 
+              "parent": "800-829", 
+              "description": "Fracture of neck of femur"
+            }, 
+            {
+              "description": "Fracture of tibia and fibula", 
+              "parent": "800-829", 
+              "name": "823", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Unspecified part, closed", 
+                  "parent": "823", 
+                  "name": "823.8", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 12083, 
+                      "name": "823.82", 
+                      "parent": "823.8", 
+                      "description": "Closed fracture of unspecified part of fibula with tibia"
+                    }
+                  ], 
+                  "size": 24218
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 15068, 
+                  "name": "823.2", 
+                  "parent": "823", 
+                  "description": "Shaft, closed"
+                }
+              ], 
+              "size": 71688
+            }, 
+            {
+              "depth": 3, 
+              "size": 9137, 
+              "name": "826", 
+              "parent": "800-829", 
+              "description": "Fracture of one or more phalanges of foot"
+            }, 
+            {
+              "description": "Fracture of ankle", 
+              "parent": "800-829", 
+              "name": "824", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8330, 
+                  "name": "824.2", 
+                  "parent": "824", 
+                  "description": "Fracture of lateral malleolus, closed"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 33842, 
+                  "name": "824.8", 
+                  "parent": "824", 
+                  "description": "Unspecified fracture of ankle, closed"
+                }
+              ], 
+              "size": 64809
+            }, 
+            {
+              "description": "Fracture of other and unspecified parts of femur", 
+              "parent": "800-829", 
+              "name": "821", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Shaft or unspecified part, closed", 
+                  "parent": "821", 
+                  "name": "821.0", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 9673, 
+                      "name": "821.01", 
+                      "parent": "821.0", 
+                      "description": "Closed fracture of shaft of femur"
+                    }
+                  ], 
+                  "size": 9673
+                }
+              ], 
+              "size": 32550
+            }
+          ], 
+          "size": 911109
+        }, 
+        {
+          "description": "SPRAINS AND STRAINS OF JOINTS AND ADJACENT MUSCLES ", 
+          "parent": "800-999", 
+          "name": "840-848", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Sprains and strains of knee and leg", 
+              "parent": "840-848", 
+              "name": "844", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 34482, 
+                  "name": "844.9", 
+                  "parent": "844", 
+                  "description": "Sprains and strains of unspecified site of knee and leg"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 16758, 
+                  "name": "844.2", 
+                  "parent": "844", 
+                  "description": "Sprain of cruciate ligament of knee"
+                }
+              ], 
+              "size": 68560
+            }, 
+            {
+              "description": "Sprains and strains of ankle and foot", 
+              "parent": "840-848", 
+              "name": "845", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8419, 
+                  "name": "845.1", 
+                  "parent": "845", 
+                  "description": "Foot"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 9764, 
+                  "name": "845.0", 
+                  "parent": "845", 
+                  "description": "Ankle"
+                }
+              ], 
+              "size": 66289
+            }, 
+            {
+              "description": "Sprains and strains of hip and thigh", 
+              "parent": "840-848", 
+              "name": "843", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8176, 
+                  "name": "843.8", 
+                  "parent": "843", 
+                  "description": "Sprains and strains of other specified sites of hip and thigh"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 10512, 
+                  "name": "843.9", 
+                  "parent": "843", 
+                  "description": "Sprains and strains of unspecified site of hip and thigh"
+                }
+              ], 
+              "size": 18873
+            }, 
+            {
+              "description": "Sprains and strains of other and unspecified parts of back", 
+              "parent": "840-848", 
+              "name": "847", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 60795, 
+                  "name": "847.2", 
+                  "parent": "847", 
+                  "description": "Sprain of lumbar"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 18882, 
+                  "name": "847.9", 
+                  "parent": "847", 
+                  "description": "Sprain of unspecified site of back"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 19925, 
+                  "name": "847.1", 
+                  "parent": "847", 
+                  "description": "Sprain of thoracic"
+                }
+              ], 
+              "size": 172292
+            }, 
+            {
+              "description": "Other and ill-defined sprains and strains", 
+              "parent": "840-848", 
+              "name": "848", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 12584, 
+                  "name": "848.8", 
+                  "parent": "848", 
+                  "description": "Other specified sites of sprains and strains"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 42125, 
+                  "name": "848.9", 
+                  "parent": "848", 
+                  "description": "Unspecified site of sprain and strain"
+                }
+              ], 
+              "size": 62103
+            }, 
+            {
+              "description": "Sprains and strains of shoulder and upper arm", 
+              "parent": "840-848", 
+              "name": "840", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 11419, 
+                  "name": "840.8", 
+                  "parent": "840", 
+                  "description": "Sprains and strains of other specified sites of shoulder and upper arm"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 39934, 
+                  "name": "840.4", 
+                  "parent": "840", 
+                  "description": "Rotator cuff (capsule) sprain"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 18401, 
+                  "name": "840.9", 
+                  "parent": "840", 
+                  "description": "Sprains and strains of unspecified site of shoulder and upper arm"
+                }
+              ], 
+              "size": 83848
+            }, 
+            {
+              "description": "Sprains and strains of wrist and hand", 
+              "parent": "840-848", 
+              "name": "842", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 11315, 
+                  "name": "842.1", 
+                  "parent": "842", 
+                  "description": "Hand"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 8876, 
+                  "name": "842.0", 
+                  "parent": "842", 
+                  "description": "Wrist"
+                }
+              ], 
+              "size": 20239
+            }, 
+            {
+              "depth": 3, 
+              "size": 9117, 
+              "name": "846", 
+              "parent": "840-848", 
+              "description": "Sprains and strains of sacroiliac region"
+            }
+          ], 
+          "size": 507064
+        }, 
+        {
+          "description": "CONTUSION WITH INTACT SKIN SURFACE ", 
+          "parent": "800-999", 
+          "name": "920-924", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Contusion of lower limb and of other and unspecified sites", 
+              "parent": "920-924", 
+              "name": "924", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Knee and lower leg", 
+                  "parent": "924", 
+                  "name": "924.1", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 12377, 
+                      "name": "924.11", 
+                      "parent": "924.1", 
+                      "description": "Contusion of knee"
+                    }
+                  ], 
+                  "size": 17438
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 34254, 
+                  "name": "924.9", 
+                  "parent": "924", 
+                  "description": "Contusion of unspecified site"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 12403, 
+                  "name": "924.8", 
+                  "parent": "924", 
+                  "description": "Contusion of multiple sites, not elsewhere classified"
+                }
+              ], 
+              "size": 81890
+            }, 
+            {
+              "description": "Contusion of trunk", 
+              "parent": "920-924", 
+              "name": "922", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 15233, 
+                  "name": "922.1", 
+                  "parent": "922", 
+                  "description": "Contusion of chest wall"
+                }
+              ], 
+              "size": 28873
+            }, 
+            {
+              "depth": 3, 
+              "size": 11858, 
+              "name": "921", 
+              "parent": "920-924", 
+              "description": "Contusion of eye and adnexa"
+            }, 
+            {
+              "description": "Contusion of upper limb", 
+              "parent": "920-924", 
+              "name": "923", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 9319, 
+                  "name": "923.2", 
+                  "parent": "923", 
+                  "description": "Wrist and hand(s), except finger(s) alone"
+                }
+              ], 
+              "size": 23689
+            }
+          ], 
+          "size": 150063
+        }, 
+        {
+          "description": "Open Wound of Upper Limb", 
+          "parent": "800-999", 
+          "name": "880-887", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 14636, 
+              "name": "886", 
+              "parent": "880-887", 
+              "description": "Traumatic amputation of other finger(s) (complete) (partial)"
+            }, 
+            {
+              "depth": 3, 
+              "size": 24200, 
+              "name": "882", 
+              "parent": "880-887", 
+              "description": "Open wound of hand except finger(s) alone"
+            }, 
+            {
+              "description": "Open wound of elbow, forearm, and wrist", 
+              "parent": "880-887", 
+              "name": "881", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8526, 
+                  "name": "881.0", 
+                  "parent": "881", 
+                  "description": "Without mention of complication"
+                }
+              ], 
+              "size": 15491
+            }, 
+            {
+              "description": "Open wound of finger(s)", 
+              "parent": "880-887", 
+              "name": "883", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 16212, 
+                  "name": "883.2", 
+                  "parent": "883", 
+                  "description": "Open wound of finger(s), with tendon involvement"
+                }
+              ], 
+              "size": 57438
+            }
+          ], 
+          "size": 132184
+        }, 
+        {
+          "description": "OPEN WOUND OF HEAD, NECK, AND TRUNK ", 
+          "parent": "800-999", 
+          "name": "870-879", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 10372, 
+              "name": "871", 
+              "parent": "870-879", 
+              "description": "Open wound of eyeball"
+            }, 
+            {
+              "description": "Other open wound of head", 
+              "parent": "870-879", 
+              "name": "873", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8732, 
+                  "name": "873.9", 
+                  "parent": "873", 
+                  "description": "Other and unspecified open wound of head, complicated"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 12685, 
+                  "name": "873.8", 
+                  "parent": "873", 
+                  "description": "Other and unspecified open wound of head without mention of complication"
+                }, 
+                {
+                  "description": "Face, without mention of complication", 
+                  "parent": "873", 
+                  "name": "873.4", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 8874, 
+                      "name": "873.43", 
+                      "parent": "873.4", 
+                      "description": "Open wound of lip, without mention of complication"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 19459, 
+                      "name": "873.42", 
+                      "parent": "873.4", 
+                      "description": "Open wound of forehead, without mention of complication"
+                    }
+                  ], 
+                  "size": 42746
+                }, 
+                {
+                  "description": "Internal structures of mouth, without mention of complication", 
+                  "parent": "873", 
+                  "name": "873.6", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 9376, 
+                      "name": "873.63", 
+                      "parent": "873.6", 
+                      "description": "Open wound of tooth (broken) (fractured) (due to trauma), without mention of complication"
+                    }
+                  ], 
+                  "size": 12423
+                }
+              ], 
+              "size": 108499
+            }, 
+            {
+              "depth": 3, 
+              "size": 8749, 
+              "name": "870", 
+              "parent": "870-879", 
+              "description": "Open wound of ocular adnexa"
+            }, 
+            {
+              "description": "Open wound of other and unspecified sites, except limbs", 
+              "parent": "870-879", 
+              "name": "879", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 62018, 
+                  "name": "879.8", 
+                  "parent": "879", 
+                  "description": "Open wound(s) (multiple) of unspecified site(s), without mention of complication"
+                }
+              ], 
+              "size": 75180
+            }
+          ], 
+          "size": 226174
+        }, 
+        {
+          "description": "Open Wound Of Lower Limb", 
+          "parent": "800-999", 
+          "name": "890-897", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 15188, 
+              "name": "897", 
+              "parent": "890-897", 
+              "description": "Traumatic amputation of leg(s) (complete) (partial)"
+            }, 
+            {
+              "depth": 3, 
+              "size": 11108, 
+              "name": "892", 
+              "parent": "890-897", 
+              "description": "Open wound of foot except toe(s) alone"
+            }, 
+            {
+              "depth": 3, 
+              "size": 29350, 
+              "name": "891", 
+              "parent": "890-897", 
+              "description": "Open wound of knee, leg [except thigh], and ankle"
+            }, 
+            {
+              "depth": 3, 
+              "size": 8251, 
+              "name": "890", 
+              "parent": "890-897", 
+              "description": "Open wound of hip and thigh"
+            }
+          ], 
+          "size": 73623
+        }, 
+        {
+          "description": "OTHER AND UNSPECIFIED EFFECTS OF EXTERNAL CAUSES ", 
+          "parent": "800-999", 
+          "name": "990-995", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Certain adverse effects not elsewhere classified", 
+              "parent": "990-995", 
+              "name": "995", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Other and unspecified adverse effect of drug, medicinal and biological substance (due) to correct medicinal substance properly administered", 
+                  "parent": "995", 
+                  "name": "995.2", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 16273, 
+                      "name": "995.29", 
+                      "parent": "995.2", 
+                      "description": "Unspecified adverse effect of other drug, medicinal and biological substance"
+                    }
+                  ], 
+                  "size": 24644
+                }, 
+                {
+                  "description": "Systemic inflammatory response syndrome (SIRS)", 
+                  "parent": "995", 
+                  "name": "995.9", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 16427, 
+                      "name": "995.91", 
+                      "parent": "995.9", 
+                      "description": "Sepsis"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 15838, 
+                      "name": "995.92", 
+                      "parent": "995.9", 
+                      "description": "Severe sepsis"
+                    }
+                  ], 
+                  "size": 33555
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 21565, 
+                  "name": "995.3", 
+                  "parent": "995", 
+                  "description": "Allergy, unspecified, not elsewhere classified"
+                }
+              ], 
+              "size": 94984
+            }
+          ], 
+          "size": 106557
+        }
+      ], 
+      "size": 4087436
+    }, 
+    {
+      "name": "E000-E999", 
+      "parent": null, 
+      "description": "Supplementary Classification Of External Causes Of Injury And Poisoning", 
+      "depth": 1, 
+      "children": [
+        {
+          "depth": 2, 
+          "size": 11160, 
+          "name": "E878-E879", 
+          "parent": "E000-E999", 
+          "description": "Medical Procedures as the Cause of Abnormal Reaction w/o mention at the time"
+        }, 
+        {
+          "description": "Adverse Effects from Substance in Therapeutic Use", 
+          "parent": "E000-E999", 
+          "name": "E930-E949", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Hormones and synthetic substitutes", 
+              "parent": "E930-E949", 
+              "name": "E932", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8367, 
+                  "name": "E932.0", 
+                  "parent": "E932", 
+                  "description": "Adrenal cortical steroids causing adverse effects in therapeutic use"
+                }
+              ], 
+              "size": 9100
+            }, 
+            {
+              "description": "Primarily systemic agents", 
+              "parent": "E930-E949", 
+              "name": "E933", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 17291, 
+                  "name": "E933.1", 
+                  "parent": "E933", 
+                  "description": "Antineoplastic and immunosuppressive drugs causing adverse effects in therapeutic use"
+                }
+              ], 
+              "size": 18170
+            }
+          ], 
+          "size": 61685
+        }, 
+        {
+          "depth": 2, 
+          "size": 18652, 
+          "name": "E850-E858", 
+          "parent": "E000-E999", 
+          "description": "Accidental Poisoning By Drugs, Medicinal Substances, And Biologicals"
+        }, 
+        {
+          "description": "Suicide and self-inflicted injury by other and unspecified means", 
+          "parent": "E000-E999", 
+          "name": "E950-E959", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 19519, 
+              "name": "E950", 
+              "parent": "E950-E959", 
+              "description": "Suicide and self-inflicted poisoning by solid or liquid substances"
+            }
+          ], 
+          "size": 25377
+        }, 
+        {
+          "description": "Accidents Due To Environmental Factors", 
+          "parent": "E000-E999", 
+          "name": "E900-E909", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 11865, 
+              "name": "E906", 
+              "parent": "E900-E909", 
+              "description": "Other injury caused by animals"
+            }
+          ], 
+          "size": 16054
+        }, 
+        {
+          "description": "Late Effects Of Accidental Injury", 
+          "parent": "E000-E999", 
+          "name": "E929-E929", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Late effects of accidental injury", 
+              "parent": "E929-E929", 
+              "name": "E929", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 11689, 
+                  "name": "E929.0", 
+                  "parent": "E929", 
+                  "description": "Late effects of motor vehicle accident"
+                }
+              ], 
+              "size": 33301
+            }
+          ], 
+          "size": 33301
+        }, 
+        {
+          "description": "Place Of Occurance", 
+          "parent": "E000-E999", 
+          "name": "E849-E849", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Place of Occurance", 
+              "parent": "E849-E849", 
+              "name": "E849", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 11697, 
+                  "name": "E849.3", 
+                  "parent": "E849", 
+                  "description": "Accidents occurring in industrial places and premises"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 29676, 
+                  "name": "E849.5", 
+                  "parent": "E849", 
+                  "description": "Street and highway accidents"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 13113, 
+                  "name": "E849.8", 
+                  "parent": "E849", 
+                  "description": "Accidents occurring in other specified places"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 18870, 
+                  "name": "E849.9", 
+                  "parent": "E849", 
+                  "description": "Accidents occurring in unspecified place"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 23423, 
+                  "name": "E849.0", 
+                  "parent": "E849", 
+                  "description": "Home accidents"
+                }
+              ], 
+              "size": 112603
+            }
+          ], 
+          "size": 112603
+        }, 
+        {
+          "description": "Injury Undetermined Whether Accidentally Or Purposely Inflicted", 
+          "parent": "E000-E999", 
+          "name": "E980-E989", 
+          "depth": 2, 
+          "children": [
+            {
+              "depth": 3, 
+              "size": 9996, 
+              "name": "E980", 
+              "parent": "E980-E989", 
+              "description": "Poisoning by solid or liquid substances, undetermined whether accidentally or purposely inflicted"
+            }
+          ], 
+          "size": 15982
+        }, 
+        {
+          "description": "Accidental Poisoning By Other Substance", 
+          "parent": "E000-E999", 
+          "name": "E860-E869", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Accidental poisoning by alcohol, not elsewhere classified", 
+              "parent": "E860-E869", 
+              "name": "E860", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 16463, 
+                  "name": "E860.0", 
+                  "parent": "E860", 
+                  "description": "Accidental poisoning by alcoholic beverages"
+                }
+              ], 
+              "size": 16973
+            }
+          ], 
+          "size": 18940
+        }, 
+        {
+          "description": "Accidental Falls ", 
+          "parent": "E000-E999", 
+          "name": "E880-E888", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Other and unspecified fall", 
+              "parent": "E880-E888", 
+              "name": "E888", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 12446, 
+                  "name": "E888.8", 
+                  "parent": "E888", 
+                  "description": "Other fall"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 59247, 
+                  "name": "E888.9", 
+                  "parent": "E888", 
+                  "description": "Unspecified fall"
+                }
+              ], 
+              "size": 77380
+            }, 
+            {
+              "description": "Fall on or from stairs or steps", 
+              "parent": "E880-E888", 
+              "name": "E880", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 11345, 
+                  "name": "E880.9", 
+                  "parent": "E880", 
+                  "description": "Accidental fall on or from other stairs or steps"
+                }
+              ], 
+              "size": 12597
+            }, 
+            {
+              "description": "Other fall from one level to another", 
+              "parent": "E880-E888", 
+              "name": "E884", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 10080, 
+                  "name": "E884.9", 
+                  "parent": "E884", 
+                  "description": "Other accidental fall from one level to another"
+                }
+              ], 
+              "size": 17212
+            }, 
+            {
+              "description": "Fall on same level from slipping, tripping, or stumbling", 
+              "parent": "E880-E888", 
+              "name": "E885", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 33156, 
+                  "name": "E885.9", 
+                  "parent": "E885", 
+                  "description": "Fall from other slipping, tripping, or stumbling"
+                }
+              ], 
+              "size": 37795
+            }
+          ], 
+          "size": 153638
+        }, 
+        {
+          "description": "Other Accidents", 
+          "parent": "E000-E999", 
+          "name": "E916-E928", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Other and unspecified environmental and accidental causes", 
+              "parent": "E916-E928", 
+              "name": "E928", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 17325, 
+                  "name": "E928.9", 
+                  "parent": "E928", 
+                  "description": "Unspecified accident"
+                }
+              ], 
+              "size": 24624
+            }, 
+            {
+              "depth": 3, 
+              "size": 10398, 
+              "name": "E924", 
+              "parent": "E916-E928", 
+              "description": "Accident caused by hot substance or object, caustic or corrosive material, and steam"
+            }, 
+            {
+              "description": "Accidents caused by cutting and piercing instruments or objects", 
+              "parent": "E916-E928", 
+              "name": "E920", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 12639, 
+                  "name": "E920.8", 
+                  "parent": "E920", 
+                  "description": "Accidents caused by other specified cutting and piercing instruments or objects"
+                }
+              ], 
+              "size": 31358
+            }, 
+            {
+              "description": "Striking against or struck accidentally by objects or persons", 
+              "parent": "E916-E928", 
+              "name": "E917", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8532, 
+                  "name": "E917.0", 
+                  "parent": "E917", 
+                  "description": "Striking against or struck accidentally by objects or persons in sports"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 21768, 
+                  "name": "E917.9", 
+                  "parent": "E917", 
+                  "description": "Caught accidentally in or between objects"
+                }
+              ], 
+              "size": 35630
+            }, 
+            {
+              "depth": 3, 
+              "size": 10510, 
+              "name": "E927", 
+              "parent": "E916-E928", 
+              "description": "Overexertion and strenuous and repetitive movements or loads"
+            }
+          ], 
+          "size": 128778
+        }, 
+        {
+          "description": "Other Road Vehicle Accidents", 
+          "parent": "E000-E999", 
+          "name": "E826-E829", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Pedal cycle accident", 
+              "parent": "E826-E829", 
+              "name": "E826", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 9997, 
+                  "name": "E826.1", 
+                  "parent": "E826", 
+                  "description": "Pedal cycle accident injuring pedal cyclist"
+                }
+              ], 
+              "size": 13071
+            }
+          ], 
+          "size": 15370
+        }, 
+        {
+          "description": "Motor Vehicle Traffic Accidents", 
+          "parent": "E000-E999", 
+          "name": "E810-E819", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Motor vehicle traffic accident involving collision with pedestrian", 
+              "parent": "E810-E819", 
+              "name": "E814", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 10880, 
+                  "name": "E814.7", 
+                  "parent": "E814", 
+                  "description": "Motor vehicle traffic accident involving collision with pedestrian injuring pedestrian"
+                }
+              ], 
+              "size": 12331
+            }, 
+            {
+              "description": "Motor vehicle traffic accident due to loss of control, without collision on the highway", 
+              "parent": "E810-E819", 
+              "name": "E816", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 8373, 
+                  "name": "E816.0", 
+                  "parent": "E816", 
+                  "description": "Motor vehicle traffic accident due to loss of control, without collision on the highway, injuring driver of motor vehicle other than motorcycle"
+                }
+              ], 
+              "size": 14717
+            }, 
+            {
+              "description": "Other motor vehicle traffic accident involving collision with motor vehicle", 
+              "parent": "E810-E819", 
+              "name": "E812", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 30273, 
+                  "name": "E812.0", 
+                  "parent": "E812", 
+                  "description": "Other motor vehicle traffic accident involving collision with motor vehicle injuring driver of motor vehicle other than motorcycle"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 12446, 
+                  "name": "E812.1", 
+                  "parent": "E812", 
+                  "description": "Other motor vehicle traffic accident involving collision with motor vehicle injuring passenger in motor vehicle other than motorcycle"
+                }
+              ], 
+              "size": 52710
+            }, 
+            {
+              "description": "Motor vehicle traffic accident of unspecified nature", 
+              "parent": "E810-E819", 
+              "name": "E819", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 39276, 
+                  "name": "E819.9", 
+                  "parent": "E819", 
+                  "description": "Motor vehicle traffic accident of unspecified nature injuring unspecified person"
+                }, 
+                {
+                  "depth": 4, 
+                  "size": 14393, 
+                  "name": "E819.2", 
+                  "parent": "E819", 
+                  "description": "Motor vehicle traffic accident of unspecified nature injuring motorcyclist"
+                }
+              ], 
+              "size": 67315
+            }
+          ], 
+          "size": 159111
+        }, 
+        {
+          "description": "Homicide And Injury Purposely Inflicted", 
+          "parent": "E000-E999", 
+          "name": "E960-E969", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Fight, brawl, rape", 
+              "parent": "E960-E969", 
+              "name": "E960", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 36188, 
+                  "name": "E960.0", 
+                  "parent": "E960", 
+                  "description": "Unarmed fight or brawl"
+                }
+              ], 
+              "size": 42319
+            }, 
+            {
+              "description": "Assault by other and unspecified means", 
+              "parent": "E960-E969", 
+              "name": "E968", 
+              "depth": 3, 
+              "children": [
+                {
+                  "depth": 4, 
+                  "size": 22191, 
+                  "name": "E968.9", 
+                  "parent": "E968", 
+                  "description": "Legal execution"
+                }
+              ], 
+              "size": 32458
+            }
+          ], 
+          "size": 81191
+        }
+      ], 
+      "size": 877007
+    }, 
+    {
+      "name": "V01-V91", 
+      "parent": null, 
+      "description": "Supplementary Classification Of Factors Influencing Health Status And Contact With Health Services", 
+      "depth": 1, 
+      "children": [
+        {
+          "description": "PERSONS ENCOUNTERING HEALTH SERVICES FOR SPECIFIC PROCEDURES AND AFTERCARE ", 
+          "parent": "V01-V91", 
+          "name": "V50-V59", 
+          "depth": 2, 
+          "children": [
+            {
+              "description": "Encounter for other and unspecified procedures and aftercare", 
+              "parent": "V50-V59", 
+              "name": "V58", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Other specified procedures and aftercare", 
+                  "parent": "V58", 
+                  "name": "V58.8", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 71798, 
+                      "name": "V58.89", 
+                      "parent": "V58.8", 
+                      "description": "Other specified aftercare"
+                    }
+                  ], 
+                  "size": 71800
+                }
+              ], 
+              "size": 71800
+            }, 
+            {
+              "description": "Other orthopedic aftercare", 
+              "parent": "V50-V59", 
+              "name": "V54", 
+              "depth": 3, 
+              "children": [
+                {
+                  "description": "Aftercare for healing traumatic fracture", 
+                  "parent": "V54", 
+                  "name": "V54.1", 
+                  "depth": 4, 
+                  "children": [
+                    {
+                      "depth": 5, 
+                      "size": 14958, 
+                      "name": "V54.16", 
+                      "parent": "V54.1", 
+                      "description": "Aftercare for healing traumatic fracture of lower leg"
+                    }, 
+                    {
+                      "depth": 5, 
+                      "size": 12751, 
+                      "name": "V54.12", 
+                      "parent": "V54.1", 
+                      "description": "Aftercare for healing traumatic fracture of lower arm"
+                    }
+                  ], 
+                  "size": 48950
+                }
+              ], 
+              "size": 49080
+            }
+          ], 
+          "size": 120880
+        }
+      ], 
+      "size": 120880
+    }
+  ], 
+  "name": "trauma"
+}

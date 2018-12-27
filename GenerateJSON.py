@@ -9,7 +9,7 @@ icd9 = ICD9("NoDx")
 #print (icd9.description("800-999"))
 
 threshold_count = 0
-threshold_score = 15
+threshold_score = 10
 
 
 def description_handle(code):
@@ -142,10 +142,7 @@ def creating_JSON_tree(code_list, code_counts, calc_type):
             temp["children"] = children
 
         temp["size"] = code_counts[code]
-        if calc_type == "count":
-            tree.append(temp)
-            is_output = True
-        elif calc_type == "score":
+        if calc_type in ["counts", "score"]:
             tree.append(temp)
             is_output = True
         else:
@@ -155,7 +152,6 @@ def creating_JSON_tree(code_list, code_counts, calc_type):
 
 def generateTree(code_counts, calc_type):
     codes = [code for code in code_counts.keys() if code != "ICD 9 Root"]
-
     all_children = creating_JSON_tree(codes, code_counts, calc_type)
     tree = {
         "size": code_counts["ICD 9 Root"],
@@ -171,13 +167,18 @@ def generateTree(code_counts, calc_type):
 
 def generateJSON_scores(pd_csv, datatype):
 
-    pd_csv["ICD 9 Code"] = pd_csv["ICD 9 Code"].astype(str)
+    #pd_csv["ICD 9 Code"] = pd_csv["ICD 9 Code"].astype(str)
+    print (pd_csv)
+    #pd_csv = pd_csv[pd_csv[datatype] != "#NUM!"]
+    pd_csv[datatype] = pd_csv[datatype].astype(float)
     pd_csv = pd_csv[pd_csv[datatype] > threshold_score]
+
+    print (pd_csv)
     csv = pd_csv.set_index("ICD 9 Code").to_dict()[datatype]
     score_output = {}
     for k,v in csv.items():
         cur_code = k
-
+        
         while (cur_code != None and cur_code != "NoDx"):
             try:
                 score_output[cur_code] = csv[cur_code]
@@ -199,16 +200,20 @@ def generateJSON_counts(pd_csv):
     
     for k,v in csv.items():
         cur_code = k
-
+        count = 1
         while cur_code != None:
-            code_counts[cur_code] += v
-            cur_code = icd9.parent(cur_code)
-    
+            if icd9.isCode(cur_code):
+                code_counts[cur_code] += v
+                cur_code = icd9.parent(cur_code)
+            else:
+                cur_code = None
+
+        
     root_count = 0
+
     for i in code_counts:
         if icd9.depth(i) == 1:
             root_count += code_counts[i]
-    
     code_counts["ICD 9 Root"] += root_count
     calc_type = "counts"
     return generateTree(code_counts, calc_type)

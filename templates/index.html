@@ -29,7 +29,7 @@
           1. Label filter slider
           3. Custom size ratios (log, linear, quad)
           X file upload feature
-          2. children node collapsable
+          X children node collapsable
           4. svg height/width ratio adjustment
           5. rescaling bug fixes
           6. selection for color pallete
@@ -55,14 +55,35 @@
         <input type="text" id="exportFileName" placeholder="Optional filename">
       </div>
       <div class="column">
-        <!-- This block can be reused as many times as needed -->
-        <h5 class="slider_header" style="margin-bottom: 0px;">Filter nodes by value</h5>
+
+
+        <!-- This block is for creating the slider for circle size filtering -->
+        <h6 class="slider_header" style="margin-bottom: 0px;">Filter nodes by value</h6>
         <section class="range-slider">
           <input id="min_slider" value="5" min="0" max="15" step="1" type="range">
           <input id="max_slider" value="10" min="0" max="15" step="1" type="range">
           <span class="rangeValues"></span>
         </section>
+        
+
+        <!-- Radio input for selecting options for onclick -->
+        <section class="range-slider radio-input" style="margin-top: 5px;">
+          <h6 class="slider_header" style="margin-bottom: 0px;">When clicking nodes:</h6>
+          <!-- Radio input for toggling the node labels -->
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="toggleLabels" name="onClickSelection">
+            <label class="custom-control-label" for="toggleLabels">Label Nodes</label>
+          </div>
+          
+          <!-- Radio input for toggling the child nodes -->
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="toggleChildren" name="onClickSelection" checked>
+            <label class="custom-control-label" for="toggleChildren">Toggle Child Nodes</label>
+          </div>
+        </section>
+        
       </div>
+
     </div>
   </div>
   <div class="logo" id="central_logo">

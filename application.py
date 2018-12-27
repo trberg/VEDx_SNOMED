@@ -19,7 +19,10 @@ def csv_data():
 
     data_csv = pd.read_csv(data, sep=",")
     print ("data received")
+
     datatype = "None"
+    code_column = False
+
     try:
         data_csv["counts"]
         datatype = "counts"
@@ -37,21 +40,54 @@ def csv_data():
         datatype = "score"
     except KeyError:
         pass
-
-    if datatype == "counts":
-        JSON_data = generateJSON_counts(data_csv)
-    elif datatype == "scores" or datatype == "score":
-        JSON_data = generateJSON_scores(data_csv, datatype)
+    
+    try:
+        data_csv["ICD 9 Code"]
+        code_column = True
+    except KeyError:
+        pass
+    
+    if not code_column:
+        try:
+            data_csv["ICD 9 Code"] = data_csv["codes"]
+            code_column = True
+        except KeyError:
+            pass
+        
+        try:
+            data_csv["ICD 9 Code"] = data_csv["code"]
+            code_column = True
+        except KeyError:
+            pass
+        
+        try:
+            data_csv["ICD 9 Code"] = data_csv["icd 9 codes"]
+            code_column = True
+        except KeyError:
+            pass
+        
+        try:
+            data_csv["ICD 9 Code"] = data_csv["icd9 codes"]
+            code_column = True
+        except KeyError:
+            pass
+    
+    if code_column:
+        if datatype == "counts":
+            JSON_data = generateJSON_counts(data_csv)
+        elif datatype == "scores" or datatype == "score":
+            JSON_data = generateJSON_scores(data_csv, datatype)
+        else:
+            return make_response(500, "file format issues")
     else:
-        print ("file format issues")
         return make_response(500, "file format issues")
 
 
-    """
-    outfile=open("large_example_dataset.json", "w")
+    
+    """outfile=open("static/data/summer_dataset.json", "w")
     outfile.write(json.dumps(JSON_data, indent=2))
-    outfile.close()
-    """
+    outfile.close()"""
+    
     
     return jsonify(JSON_data)
 

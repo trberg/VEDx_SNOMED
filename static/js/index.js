@@ -1,6 +1,6 @@
 
 import { export_init } from "./export.js";
-import { tree } from "./tree.js";
+import { tree, update } from "./tree.js";
 import { startTutorial, loadExample } from "./tutorial.js";
 import { loadSlider } from "./sliders.js";
 import { circleFilter } from "./circles.js";
@@ -14,17 +14,17 @@ let configs = {},
 const uploadbutton = () => {
 
   // add event listener to example file button
-  document.getElementById("example_file").addEventListener('click', loadExample);
+  document.getElementById("example_file").addEventListener('click', loadExample, {passive: true});
 
   // add event listener to visible upload file button
-  document.getElementById('buttonid').addEventListener('click', openDialog);
+  document.getElementById('buttonid').addEventListener('click', openDialog, {passive: true});
 
   // add event listener to visible submit button
-  document.getElementById('submitButton').addEventListener('click', submitFile);
+  document.getElementById('submitButton').addEventListener('click', submitFile, {passive: true});
 
   // add event listener to filter slider
-  document.getElementById('min_slider').addEventListener('mouseup', circleFilter);
-  document.getElementById('max_slider').addEventListener('mouseup', circleFilter);
+  document.getElementById('min_slider').addEventListener('mouseup', circleFilter, {passive: true});
+  document.getElementById('max_slider').addEventListener('mouseup', circleFilter, {passive: true});
 
   // listener for when file is uploaded before submission
   var fileupload = $("#fileid");
@@ -86,7 +86,7 @@ function logo() {
 }
 
 function loadTutorial() {
-  document.getElementById('tutorial_btn').addEventListener('click', startTutorial);
+  document.getElementById('tutorial_btn').addEventListener('click', startTutorial, {passive: true});
 }
 
 
