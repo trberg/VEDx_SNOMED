@@ -18,7 +18,6 @@ def csv_data():
     data = StringIO(request.data.decode("utf-8"), newline='\n')
 
     data_csv = pd.read_csv(data, sep=",")
-    print ("data received")
 
     datatype = "None"
     code_column = False

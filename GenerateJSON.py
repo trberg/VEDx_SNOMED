@@ -168,12 +168,11 @@ def generateTree(code_counts, calc_type):
 def generateJSON_scores(pd_csv, datatype):
 
     #pd_csv["ICD 9 Code"] = pd_csv["ICD 9 Code"].astype(str)
-    print (pd_csv)
     #pd_csv = pd_csv[pd_csv[datatype] != "#NUM!"]
+    
     pd_csv[datatype] = pd_csv[datatype].astype(float)
     pd_csv = pd_csv[pd_csv[datatype] > threshold_score]
 
-    print (pd_csv)
     csv = pd_csv.set_index("ICD 9 Code").to_dict()[datatype]
     score_output = {}
     for k,v in csv.items():
