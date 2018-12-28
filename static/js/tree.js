@@ -70,7 +70,7 @@ const loadConfigs = (location) => {
             menuH = menuHeight.substring(0, menuHeight.length - 2);
     
         configs.width = WIDTH,
-        configs.height = HEIGHT,
+        configs.height = HEIGHT - menuH,
         configs.sizeWeight = 0.05;
     
         // add rectangles for label containers

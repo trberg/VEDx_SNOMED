@@ -7,7 +7,7 @@ import { updateSlider } from "./sliders.js";
 export function sizeWeightCalc(nodes, con) {
     var depthWeights = [10000, 10000, 10000, 10000, 10000, 10000];
 
-    for (var i=0; i<con.deepest + 1; i++) {
+    for (var i=0; i< 5; i++) {
         var depthScores = [];
 
         nodes.forEach(function(d) { 
@@ -23,7 +23,7 @@ export function sizeWeightCalc(nodes, con) {
             constant = 0.5,
             numNodes = depthScores.length,
             sizeWeight = (con.width - (constant * (numNodes + 1)))/totScore,
-            maxSizeWeight = ((con.height/con.deepest+1) - con.margin.top)/(2*maxScore);
+            maxSizeWeight = ((con.height/5) - con.margin.top)/(2*maxScore);
         
         if (sizeWeight != Infinity) {
             depthWeights[i] = Math.min(maxSizeWeight, sizeWeight);
