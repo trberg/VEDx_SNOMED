@@ -1,4 +1,3 @@
-//import { saveSvgAsPng } from "./saveSvgAsPng/src/saveSvgAsPng.js";
 /*
     Original source code here: http://bl.ocks.org/Rokotyan/0556f8facbaf344507cdc45dc3622177
 */
@@ -9,8 +8,6 @@ const setExportButton = () => {
     d3.select('#saveButton').on('click', 
         function() {
             var input_name = document.getElementById("exportFileName").value;
-            console.log(input_name);
-            console.log(filename);
             if ( input_name == ""){
                 var filename = "ICD 9 Tree";
             }

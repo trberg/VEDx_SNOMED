@@ -1,4 +1,5 @@
 import { circleSize } from "./circles.js"
+import { tree } from "./tree.js";
 
 let tree_configs;
 
@@ -50,9 +51,7 @@ export function labelNode(d, con) {
             .attr("id", function(d) { return "label" + d.id; })
             .attr("class", "label")
             .call(d3.behavior.drag()
-                //.on("start", dragstart)
                 .on("drag", dragged) );
-                //.on("end", dragend));;
 
         // add rect as label
         labelEnter.append("rect")
@@ -122,10 +121,9 @@ const labelX = () => {
 // and adds a buffer.
 const labelY = (d) => {
     //var buffer = d.size/sizeWeight;
-    var zero = tree_configs.height/6 - circleSize(d, tree_configs),
+    var zero = tree_configs.height/(tree_configs.deepest+1) - circleSize(d, tree_configs),
         buffer = circleSize(d, tree_configs),
         output_value = buffer;
-
     if ((output_value + tree_configs.rectHeight) < (zero)) {
         return output_value;
     }
@@ -145,51 +143,60 @@ const lineX = () => {
 // enables the drag capabilities of the node labels
 function dragged(d) {
 
-    var x = d3.event.x - (tree_configs.rectWidth/2),
-        y = d3.event.y - (tree_configs.rectHeight);
+    //console.log(d3.select(this));
     
+    var label = this;
+
+    this.x = this.x || 0;
+    this.y = this.y || 0;
+
+    this.x += d3.event.dx;
+    this.y += d3.event.dy;
+
+    var x = this.x,
+        y = this.y;
 
     // drag the node that contains the rect object and the text object.
-    d3.select("g#label" + d.id)
-        .attr("transform", function(d) {  return "translate("+d3.event.x+","+y+")";  });
+    d3.select(this)
+        .attr("transform",  "translate(" + this.x + "," + this.y + ")");
     
 
     // drag the end of the line and recalculate
     d3.select("line#node" + d.id)
         .attr("x2", function() {
-            if (labelCenter()) {
+            if (labelCenter(label)) {
                 return 0;
             }
-            else if (labelBelow()){
-                return x + (tree_configs.rectWidth/2);
-            }
-            else if (labelAbove()){
-                return x + (tree_configs.rectWidth/2);
-            }
-            else if (labelLeft()) {
-                return x + tree_configs.rectWidth;
-            }
-            else if (labelRight()) {
+            else if (labelBelow(label)){
                 return x;
             }
+            else if (labelAbove(label)){
+                return x;
+            }
+            else if (labelLeft(label)) {
+                return x + (tree_configs.rectWidth/2);
+            }
+            else if (labelRight(label)) {
+                return x - (tree_configs.rectWidth/2);
+            }
             else {
-                return d3.event.x + (tree_configs.rectWidth/2);
+                return x;
             }
         })
         .attr("y2", function() { 
-            if (labelCenter()) {
+            if (labelCenter(label)) {
                 return 0;
             }
-            else if (labelBelow()){
+            else if (labelBelow(label)){
                 return y + labelY(d);
             }
-            else if (labelAbove()){
+            else if (labelAbove(label)){
                 return y + tree_configs.rectHeight + labelY(d);
             }
-            else if (labelLeft()) {
+            else if (labelLeft(label)) {
                 return y + tree_configs.rectHeight/2 + labelY(d);
             }
-            else if (labelRight()) {
+            else if (labelRight(label)) {
                 return y + tree_configs.rectHeight/2 + labelY(d);
             }
             else {
@@ -205,16 +212,18 @@ function dragged(d) {
     These are called when an active label is being dragged to calculate the location of the end of the connecting
     line between the center of the circle and the label.
 */
-function labelCenter() {
+function labelCenter(label) {
 
-    var x = d3.event.x,
-        y = d3.event.y;
+    var x = label.x,
+        y = label.y;
+
+    var comp = -(tree_configs.rectHeight/tree_configs.circle_offset);
 
     var calc = ( 
         (
-            y - tree_configs.rectHeight/2 <= 0
+            y <= comp
             &&
-            y + tree_configs.rectHeight/2 >= 0
+            y + tree_configs.rectHeight >= comp
         )
         && 
         (
@@ -226,30 +235,33 @@ function labelCenter() {
     return calc;
 }
 
-function labelLeft(){
-    var x = d3.event.x;
+function labelLeft(label){
+    var x = label.x;
 
     var calc = (x - (tree_configs.rectWidth/2) < 0);
     return calc;
 }
 
-function labelRight(){
-    var x = d3.event.x;
+function labelRight(label){
+    var x = label.x;
 
     var calc = (x + (tree_configs.rectWidth/2) > 0);
     return calc;
 }
 
-function labelAbove(){
-    var y = d3.event.y;
+function labelAbove(label){
+    var y = label.y;
 
-    var calc = (y + tree_configs.rectHeight/2 < 0);
+    var comp = -(tree_configs.rectHeight/tree_configs.circle_offset + tree_configs.rectHeight);
+
+    var calc = ( y < comp );
     return calc;
 }
 
-function labelBelow(){
-    var y = d3.event.y;
+function labelBelow(label){
+    var y = label.y;
+    var comp = -(tree_configs.rectHeight/tree_configs.circle_offset);
 
-    var calc = (y - tree_configs.rectHeight/2 > 0);
+    var calc = (y > comp);
     return calc;
 }

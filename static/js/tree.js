@@ -1,7 +1,7 @@
 import { 
     circleSize, sizeWeightCalc, 
     circleXLocation, circleYLocation, circleMouseover, 
-    circleMouseout, circleXUpdate, children_toggle } from "./circles.js";
+    circleMouseout, circleXUpdate, children_toggle, noChildren } from "./circles.js";
 import {linkWidth} from "./links.js";
 import { updateSlider } from "./sliders.js"
 import { labelNode } from "./labels.js"
@@ -14,13 +14,13 @@ let tree_configs,
     rectHeight,
     width,
     height,
-    margin,
-    sizes = [];
+    margin;
 
 // set configuration values
 const loadConfigs = (location) => {
     configs = {};
     configs.margin = {top: 20, right: 30, bottom: 0, left: 30};
+    configs.circle_offset = 3;
   
     // initiate svg so widths and heights can be configured
     if (location == "main") {
@@ -95,7 +95,8 @@ export function update(root, location) {
     var i = 0;
     
     var duration = 1500,
-        exit_duration = 300,
+        exit_duration = 250,
+        wait_time = exit_duration,
         easement = "elastic",
         exit_easement = "back"
     
@@ -142,12 +143,11 @@ export function update(root, location) {
         .attr("id", function(d){ return "node" + d.id; })
         .attr("class", "node")
         .attr("labeled", false)
-        .attr("transform", function(d) { 
-            return "translate(" + d.parent.x + "," + d.parent.y + ")"; });
+        .attr("transform", function(d) { return transform_nodes(d); });
     
 
     node.transition()
-        .delay(exit_duration)
+        .delay(wait_time)
         .ease(easement)
         .duration(duration)
         .attr("transform", function(d) { 
@@ -175,18 +175,20 @@ export function update(root, location) {
             })
         //.on("mouseover", function(d) { labelNode() })
         .on("mouseover", function(d) { circleMouseover(d, tree_configs) })
-        .on("mouseout", function(d) { circleMouseout(d, tree_configs) }) //; labelNode(d);
+        .on("mouseout", function(d) { circleMouseout(d, tree_configs) });
+    
+    node.select("circle")
         .transition()
-            .delay(exit_duration)
+            .delay(wait_time)
             .ease(easement)
             .duration(duration)
-            .attr("r", function(d) { sizes.push(d.size); return circleSize(d, tree_configs); });
+            .attr("r", function(d) { return circleSize(d, tree_configs); });
     
     //console.log(nodeEnter);
     node.exit().transition()
         .ease(exit_easement)
         .duration(exit_duration)
-        .attr("transform", function(d) { return "translate(" + d.parent.x + "," + d.parent.y + ")"; })
+        .attr("transform", function(d) { return transform_nodes(d); })
         .style("opacity", 1e-6)
         .remove()
         .select("circle").attr("r", 0);
@@ -208,12 +210,10 @@ export function update(root, location) {
             } else {
                 return color(d.source.name.replace(/ .*/, ""));
             } })
-        .attr("d", function(d) {
-            var o = {x: d.source.x, y: d.source.y};
-            return diagonal({source: o, target: o});});
+        .attr("d", function(d) { return transform_links(d, diagonal); });
     
     link.transition()
-        .delay(exit_duration)
+        .delay(wait_time)
         .ease(easement)
         .duration(duration)
         .attr("d", diagonal)
@@ -223,9 +223,7 @@ export function update(root, location) {
     link.exit().transition()
         .ease(exit_easement)
         .duration(exit_duration)
-        .attr("d", function(d) {
-            var o = {x: d.source.x, y: d.source.y};
-            return diagonal({source: o, target: o}); })
+        .attr("d", function(d) { return transform_links(d, diagonal); })    
         .attr("stroke-width", 0)
         .remove();
 }
@@ -251,6 +249,70 @@ function deepest_node(root) {
     return max_depth;
 }
 
+function transform_nodes (d) {
+    
+    if (event.type == "load") {
+        var cur_node = d;
+        while (cur_node.depth != 0) {
+            cur_node = cur_node.parent;
+        }
+        return "translate(" + cur_node.x + "," + cur_node.y + ")";
+    } else if (d3.event && d3.event.isTrusted && !isFilterEvent()) {
+        var event_node = d3.select(d3.event.target).data()[0],
+            x = event_node.x,
+            y = event_node.y;
+        return "translate(" + x + "," + y + ")";
+    } else if (event && event.isTrusted && isFilterEvent()) {
+        var cur_node = d;
+        while ( cur_node.filtered || cur_node.unfiltering ) {
+            cur_node = cur_node.parent;
+        }
+        return "translate(" + cur_node.x + "," + cur_node.y + ")";
+    } else {
+        return "translate(" + d.parent.x + "," + d.parent.y + ")";
+    }
+}
+
+function transform_links (d, diagonal) {
+    if (event.type == "load") {
+        var cur_node = d.source;
+        while (cur_node.depth != 0) {
+            cur_node = cur_node.parent;
+        }
+        var o = {x: cur_node.x, y: cur_node.y};
+        return diagonal({source: o, target: o});
+
+    } else if (d3.event && d3.event.isTrusted && !isFilterEvent()) {
+
+        var event_node = d3.select(d3.event.target).data()[0],
+            o = {x: event_node.x, y: event_node.y};
+        return diagonal({source: o, target: o});
+
+    } else if (event && event.isTrusted && isFilterEvent()) {
+
+        var cur_node = d.source;
+        while ( cur_node.filtered || cur_node.unfiltering ) {
+            cur_node = cur_node.parent;
+        }
+        var o = {x: cur_node.x, y: cur_node.y};
+        return diagonal({source: o, target: o});
+
+    } else {
+        var o = {x: d.source.x, y: d.source.y};
+        return diagonal({source: o, target: o});
+    }
+    
+}
+
+function isFilterEvent() {
+    if (event.target.id == "min_slider") {
+        return true;
+    } else if (event.target.id == "max_slider") {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 // loads the configureation variables and initiates the tree
 export async function tree(root, location) {
@@ -265,7 +327,7 @@ export async function tree(root, location) {
     rectWidth = configs.rectWidth,
     rectHeight = configs.rectHeight;
 
-    await update(root, location);
-    updateSlider(sizes);
+    update(root, location);
+    updateSlider(root);
 }
 

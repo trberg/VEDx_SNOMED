@@ -19,7 +19,16 @@ function getVals(){
         displayElement.innerHTML = slide1 + " - " + slide2;
 }
 
-export function updateSlider(sizes) {
+function getSizes(d, sizes) {
+    sizes.push(d.size);
+    if (d.children) {
+        d.children.forEach(function(child) {getSizes(child, sizes);});
+    }
+}
+
+export function updateSlider(root) {
+    var sizes = [];
+    getSizes(root, sizes);
 
     var max = Math.max(...sizes),
         min = Math.min(...sizes);

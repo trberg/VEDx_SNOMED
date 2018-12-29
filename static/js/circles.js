@@ -110,7 +110,7 @@ export function circleXUpdate(d, con) {
 // calculate the Y-axis location of a circle based on depth.
 export function circleYLocation(d, con) {
     var levels = con.height/(con.deepest + 1);
-    return (d.depth*levels) + circleSize(d, con) + con.margin.top;
+    return (d.depth*levels) + circleSize(d, con)/con.circle_offset + con.margin.top;
 }
 
 
@@ -201,7 +201,7 @@ function getDescendantsSizes(d, sizes) {
 // checks to see if all the children of the input node are either not present or
 // outside the the min max range.
 // if both conditions are true, returns true.
-function noChildren(d, min, max) {
+export function noChildren(d, min, max) {
     var sizes =[];
     getDescendantsSizes(d, sizes);
     
@@ -232,16 +232,15 @@ function removeChildren(cur_node, min, max) {
             function(d) {
                 if ((d.size < min || d.size > max) && noChildren(d, min, max)) {
                     children_filter.push(d);
-                    
-                    /*console.log("-----------------------");
-                    console.log(d);
-                    console.log(noChildren(d));
-                    console.log(d.size, min, max);*/
+                    d["filtered"] = true;
+                    d["unfiltering"] = false;
                     
                 } else {
                     children_keep.push(d);
-                    removeChildren(d, min, max);
+                    d["filtered"] = false;
+                    d["unfiltering"] = false;
                 }
+                removeChildren(d, min, max);
             }
         );
         if (cur_node._children_filter) {
@@ -273,8 +272,12 @@ function addChildren(cur_node, min, max) {
             function(d) {
                 if (d.size >= min && d.size <= max) {
                     children_add.push(d);
+                    d["filtered"] = false;
+                    d["unfiltering"] = true;
                 } else {
                     children_filtered.push(d);
+                    d["filtered"] = true;
+                    d["unfiltering"] = false;
                 }
                 addChildren(d, min, max);
             }
