@@ -241,7 +241,7 @@ function getChildDepths(d, depths) {
 
 
 function deepest_node(root) {
-
+    
     var depths = [];
     getChildDepths(root, depths);
     var max_depth = Math.max(...depths);
@@ -250,53 +250,63 @@ function deepest_node(root) {
 }
 
 function transform_nodes (d) {
-    
-    if (event.type == "load") {
-        var cur_node = d;
-        while (cur_node.depth != 0) {
-            cur_node = cur_node.parent;
+    console.log(event);
+    if (event) {
+        if (event.type == "load") {
+            var cur_node = d;
+            while (cur_node.depth != 0) {
+                cur_node = cur_node.parent;
+            }
+            return "translate(" + cur_node.x + "," + cur_node.y + ")";
+        } else if (d3.event && d3.event.isTrusted && !isFilterEvent()) {
+            var event_node = d3.select(d3.event.target).data()[0],
+                x = event_node.x,
+                y = event_node.y;
+            return "translate(" + x + "," + y + ")";
+        } else if (event && event.isTrusted && isFilterEvent()) {
+            var cur_node = d;
+            while ( cur_node.filtered || cur_node.unfiltering ) {
+                cur_node = cur_node.parent;
+            }
+            return "translate(" + cur_node.x + "," + cur_node.y + ")";
+        } else {
+            return "translate(" + d.parent.x + "," + d.parent.y + ")";
         }
-        return "translate(" + cur_node.x + "," + cur_node.y + ")";
-    } else if (d3.event && d3.event.isTrusted && !isFilterEvent()) {
-        var event_node = d3.select(d3.event.target).data()[0],
-            x = event_node.x,
-            y = event_node.y;
-        return "translate(" + x + "," + y + ")";
-    } else if (event && event.isTrusted && isFilterEvent()) {
-        var cur_node = d;
-        while ( cur_node.filtered || cur_node.unfiltering ) {
-            cur_node = cur_node.parent;
-        }
-        return "translate(" + cur_node.x + "," + cur_node.y + ")";
     } else {
         return "translate(" + d.parent.x + "," + d.parent.y + ")";
     }
+    
 }
 
 function transform_links (d, diagonal) {
-    if (event.type == "load") {
-        var cur_node = d.source;
-        while (cur_node.depth != 0) {
-            cur_node = cur_node.parent;
+    if (event) {
+        if (event.type == "load") {
+            var cur_node = d.source;
+            while (cur_node.depth != 0) {
+                cur_node = cur_node.parent;
+            }
+            var o = {x: cur_node.x, y: cur_node.y};
+            return diagonal({source: o, target: o});
+
+        } else if (d3.event && d3.event.isTrusted && !isFilterEvent()) {
+
+            var event_node = d3.select(d3.event.target).data()[0],
+                o = {x: event_node.x, y: event_node.y};
+            return diagonal({source: o, target: o});
+
+        } else if (event && event.isTrusted && isFilterEvent()) {
+
+            var cur_node = d.source;
+            while ( cur_node.filtered || cur_node.unfiltering ) {
+                cur_node = cur_node.parent;
+            }
+            var o = {x: cur_node.x, y: cur_node.y};
+            return diagonal({source: o, target: o});
+
+        } else {
+            var o = {x: d.source.x, y: d.source.y};
+            return diagonal({source: o, target: o});
         }
-        var o = {x: cur_node.x, y: cur_node.y};
-        return diagonal({source: o, target: o});
-
-    } else if (d3.event && d3.event.isTrusted && !isFilterEvent()) {
-
-        var event_node = d3.select(d3.event.target).data()[0],
-            o = {x: event_node.x, y: event_node.y};
-        return diagonal({source: o, target: o});
-
-    } else if (event && event.isTrusted && isFilterEvent()) {
-
-        var cur_node = d.source;
-        while ( cur_node.filtered || cur_node.unfiltering ) {
-            cur_node = cur_node.parent;
-        }
-        var o = {x: cur_node.x, y: cur_node.y};
-        return diagonal({source: o, target: o});
-
     } else {
         var o = {x: d.source.x, y: d.source.y};
         return diagonal({source: o, target: o});
