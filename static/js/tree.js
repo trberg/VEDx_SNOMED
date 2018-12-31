@@ -250,7 +250,7 @@ function deepest_node(root) {
 }
 
 function transform_nodes (d) {
-    console.log(event);
+    //console.log(event);
     if (event) {
         if (event.type == "load") {
             var cur_node = d;

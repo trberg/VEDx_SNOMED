@@ -92,6 +92,6 @@ def csv_data():
 
 
 if __name__ == '__main__':
-    application.debug=True
+    #application.debug=True
     application.run(threaded=True)
     #application.run(host="0.0.0.0", port=8080, threaded=True)

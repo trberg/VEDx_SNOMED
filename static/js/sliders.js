@@ -30,9 +30,9 @@ export function updateSlider(root) {
     var sizes = [];
     getSizes(root, sizes);
 
-    var max = Math.max(...sizes),
-        min = Math.min(...sizes);
-
+    var max = Math.ceil(Math.max(...sizes)),
+        min = Math.floor(Math.min(...sizes));
+    
     d3.select("#min_slider")
         .attr("min", min)
         .attr("max", max)
