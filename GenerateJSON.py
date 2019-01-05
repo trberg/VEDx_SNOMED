@@ -10,10 +10,13 @@ icd9 = ICD9("NoDx")
 
 threshold_count = 0
 threshold_score = 10
+max_node_count = 400
 
 
 def description_handle(code):
-
+    
+    if icd9.description(code) == None:
+        return "None"
     descr = icd9.description(code)
     if descr.startswith("Other and Unspecified"):
         descr = descr.replace("Other and Unspecified ", "").rstrip().lstrip()
@@ -78,9 +81,10 @@ def description_handle(code):
     return descr
 
 
-def addChildren(code, ancestors, code_counts):
+def addChildren(code, ancestors, code_counts, max_level):
     output = []
     is_output = False
+    
     for child in icd9.children(code):
         temp = {}
         if child in ancestors:
@@ -88,16 +92,21 @@ def addChildren(code, ancestors, code_counts):
                 pass
             else:
                 temp["name"] = child
-
-                children = addChildren(child, ancestors, code_counts)
-                if children == None:
-                    pass
-                else:
-                    temp["children"] = children
-
                 temp["description"] = description_handle(child)
                 temp["parent"] = icd9.parent(child)
                 temp["depth"] = icd9.depth(child)
+                #print (temp["depth"], max_level)
+                children = addChildren(child, ancestors, code_counts, max_level)
+                if children == None:
+                    pass
+                else:
+                    if temp["depth"] != max_level:
+                        temp["children"] = children
+                        temp["_children"] = None
+                    else:
+                        temp["children"] = children
+                        temp["_children"] = None
+
                 try:
                     temp["size"] = code_counts[child]
                     
@@ -106,8 +115,10 @@ def addChildren(code, ancestors, code_counts):
                         is_output = True
                     else:
                         pass
-                except:
-                    pass
+                except KeyError:
+                    temp["size"] = 1
+                    output.append(temp)
+                    is_output = True
                 
         else:
             pass
@@ -119,8 +130,21 @@ def addChildren(code, ancestors, code_counts):
 
 def creating_JSON_tree(code_list, code_counts, calc_type):
     #all_codes = list(icd9.getAllCodes())
+    
+    all_codes = list(set(icd9.descendants([str(i) for i in icd9.ancestors(code_list)])))
+    #all_codes = list(set(icd9.ancestors(code_list)))
+    
 
-    all_codes = code_list
+    depth_count = Counter()
+    for code in all_codes:
+        depth_count[icd9.depth(code)] += 1
+    
+    node_count = 0
+    max_level = 0
+    while (node_count < max_node_count):
+        max_level += 1
+        node_count += depth_count[max_level]
+
     parents = (sorted(list(set(icd9.abstract(all_codes, 1)))))
     parents = [i for i in parents if i != "NoDx"]
 
@@ -134,14 +158,22 @@ def creating_JSON_tree(code_list, code_counts, calc_type):
         temp["description"] = description_handle(code)
         temp["parent"] = icd9.parent(code)
         temp["depth"] = icd9.depth(code)
-        children = addChildren(code, ancestors, code_counts)
-
+        children = addChildren(code, ancestors, code_counts, max_level)
+        
         if children == None:
             pass
         else:
-            temp["children"] = children
+            if temp["depth"] != max_level:
+                temp["children"] = children
+                temp["_children"] = None
+            else:
+                temp["children"] = children
+                temp["_children"] = None
 
-        temp["size"] = code_counts[code]
+        try:
+            temp["size"] = code_counts[code]
+        except KeyError:
+            temp["size"] = 1
         if calc_type in ["counts", "score"]:
             tree.append(temp)
             is_output = True
