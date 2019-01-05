@@ -127,7 +127,6 @@ export function update(root, location) {
 
     // Calculated the y-axis values
     nodes.forEach(function(d) { d.y = circleYLocation(d, tree_configs); });
-    
 
     // Calculate the x-axis values
     nodes.forEach(function(d) { d.x = circleXLocation(d, nodes, tree_configs); });
@@ -150,7 +149,7 @@ export function update(root, location) {
         .delay(wait_time)
         .ease(easement)
         .duration(duration)
-        .attr("transform", function(d) { 
+        .attr("transform", function(d) {
             d.x = circleXLocation(d, nodes, tree_configs);
             d.y = circleYLocation(d, tree_configs);
             return "translate(" + d.x + "," + d.y + ")"; })

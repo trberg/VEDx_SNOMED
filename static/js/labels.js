@@ -12,11 +12,19 @@ function init_configs(con) {
 function addText() {
     
 
-    var cur_node = d3.select(this.parentNode).data()[0]
-    
+    var cur_node = d3.select(this.parentNode).data()[0],
+        cur_text = "";
+    if (document.getElementById("NameLabels").checked) {
+        cur_text = cur_node.name;
+    } else if (document.getElementById("DescriptionLabels").checked) {
+        cur_text = cur_node.description;
+    } else {
+        cur_text = cur_node.description;
+    }
+
     var data = [
         {
-            text: cur_node.description
+            text: cur_text
         }
     ]
     //console.log(d3.select(this.parentNode).data()[0].description);

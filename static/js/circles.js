@@ -333,7 +333,6 @@ export function getChildSizes(d, maxsize) {
 
 // toggles the presence of children
 export function children_toggle(d, root, location) {
-    
     if (d.children) {
         d._children = d.children;
         d.children = null;

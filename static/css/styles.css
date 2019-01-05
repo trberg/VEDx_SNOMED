@@ -180,12 +180,12 @@ hr {
     border: 1px solid #A9A9A9;
     border-radius: 5px;
     font-family: 'Raleway', sans-serif;
-    width: 60%;
+    width: 80%;
 }
 
 .column {
     float: left;
-    width: 33%;
+    width: 25%;
 }
 
 box {
@@ -259,6 +259,10 @@ button:active {
 */
 .slider_header {
     display: none;
+}
+
+section.labeling_section {
+    display:none;
 }
 
 section.range-slider {

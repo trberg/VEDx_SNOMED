@@ -48,6 +48,7 @@ export function updateSlider(root) {
 
     $(".slider_header").fadeIn(200);
     $(".range-slider").fadeIn(200);
+    $(".labeling_section").fadeIn(200);
 }
 
 export function loadSlider() {
