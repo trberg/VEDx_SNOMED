@@ -3,7 +3,7 @@
 
 
 ## Overview
-The VEDx dashboard is a flask/d3 application developed at the University of Washington for the visualization and interactive exploration of a clinical cohorts ICD-9-CM diagnosis codes. ICD-9-CM is a heirarchical coding standard used for diagnosis and billing at hospitals around the world. While ICD-9-CM was discontinued in 2015, and ICD-10-CM replaced it, the vast majority of Electronic Health Record data still currently has ICD-9-CM as the diagnosis code. For more information on ICD-9-CM, see [ICD9Data.com](icd9data.com).
+The VEDx dashboard is a flask/d3 application developed at the University of Washington for the visualization and interactive exploration of the ICD-9-CM diagnosis codes in a medical record or claims dataset. ICD-9-CM is a heirarchical coding standard used for diagnosis and billing at hospitals around the world. While ICD-9-CM was discontinued in 2015, and ICD-10-CM replaced it, the vast majority of retrospective Electronic Health Record data still currently has ICD-9-CM as the diagnosis code. For more information on ICD-9-CM, see [ICD9Data.com](icd9data.com).
 
 ## Install and Run
 Clone this repository and enter the project
@@ -52,3 +52,7 @@ For a collection of ICD 9 scores (e.g. generated via statistical enrichment), fo
 >As in the case above, the first column may be named "ICD 9 Code", "code", "codes", "icd 9 code", or "icd9 code". Everything else will break the dashboard. The second column can be named "scores" or "score".
 
 **Another important note**: The uploaded csv files do not need to be just two columns. All that is required is that the file have two columns that fit the naming schema above. The dashboard will ignore all columns not in the above examples.
+
+Authored by [Tim Bergquist](https://github.com/trberg).
+
+Contact: trberg@uw.edu
