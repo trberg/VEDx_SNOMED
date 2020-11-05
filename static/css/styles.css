@@ -45,9 +45,8 @@ table th {
 }
 
 .tutorial {
-    width: 15%;
-    margin-left: 42.5%;
     display: none;
+    align-self: center;
 }
 
 hr {
@@ -173,19 +172,46 @@ hr {
 }
 
 .top-bar {
-    margin: 5px 20px 0px 20px;
+    margin: 5px 5px 0px 10px;
     padding: 5px;
     height: 20%;
-    box-shadow: 4px 3px #D0D0D0;
+    /*box-shadow: 4px 3px #D0D0D0;*/
     border: 1px solid #A9A9A9;
     border-radius: 5px;
-    font-family: 'Raleway', sans-serif;
-    width: 80%;
+    /* font-family: 'Raleway', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
+    width: 78%;
+}
+
+.top-bar-right {
+    right: 0;
+    position: absolute;
+    margin: 5px 5px 0px 20px;
+    padding: 5px;
+    height: auto;
+    /*box-shadow: 4px 3px #D0D0D0;*/
+    border-color: #2098D1;
+    border-style: solid;
+    border-width: 5px 1px 5px 1px;
+    border-radius: 1px;
+    /* font-family: 'Raleway', sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
+    width: 18%;
+    z-index: 100;
+    overflow: visible;
 }
 
 .column {
     float: left;
+    text-align: left;
     width: 25%;
+    padding: 10px;
+}
+
+.menu_node {
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    display: 'hidden';
 }
 
 box {
@@ -319,3 +345,57 @@ section.range-slider input:last-of-type::-moz-range-track {
   section.range-slider input[type=range]::-moz-focus-outer {
   border: 0;
 }
+
+/* Text alignment for body */ 
+body { 
+    text-align: center; 
+} 
+  
+/* Styling h1 tag */ 
+h1 { 
+    color: green; 
+    text-align: center; 
+} 
+  
+/* Styling error modal */ 
+.modal:before { 
+    content: ''; 
+    display: inline-block; 
+    height: 100%; 
+    vertical-align: middle; 
+} 
+  
+.modal-dialog { 
+    display: inline-block; 
+    vertical-align: middle; 
+} 
+  
+.modal .modal-content { 
+    padding: 20px 20px 20px 20px; 
+    -webkit-animation-name: modal-animation; 
+    -webkit-animation-duration: 0.5s; 
+    animation-name: modal-animation; 
+    animation-duration: 0.5s; 
+} 
+  
+@-webkit-keyframes modal-animation { 
+    from { 
+        top: -100px; 
+        opacity: 0; 
+    } 
+    to { 
+        top: 0px; 
+        opacity: 1; 
+    } 
+} 
+  
+@keyframes modal-animation { 
+    from { 
+        top: -100px; 
+        opacity: 0; 
+    } 
+    to { 
+        top: 0px; 
+        opacity: 1; 
+    } 
+} 

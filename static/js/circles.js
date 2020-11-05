@@ -123,6 +123,10 @@ export function circleMouseover(d, con) {
         .duration("500")
         .attr("r", function(p) { return circleSize(p, con) + 10; });
 
+    document.getElementById("menu_code").innerHTML = "<b>Code</b>: " + d.name;
+    document.getElementById("menu_code_name").innerHTML = "<b>Name</b>: " + d.description;
+    document.getElementById("menu_code_value").innerHTML = "<b>Size</b>: " + d.size.toFixed(2);
+
     /*
     d3.selectAll("path#parent" + d.id).transition()
         .ease("elastic")

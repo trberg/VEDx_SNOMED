@@ -3,7 +3,7 @@ import pandas as pd
 from io import StringIO
 import json
 from GenerateJSON import generateJSON_counts, generateJSON_scores
-
+from DxCodeHandler.ICD9 import ICD9
 
 application = Flask(__name__)
 
@@ -12,15 +12,39 @@ def dashboard():
     return render_template("index.html")
 
 
-@application.route('/csv_data', methods=['POST'])
-def csv_data():
-
+@application.route('/process_data', methods=['POST'])
+def process_data():
+    
     data = StringIO(request.data.decode("utf-8"), newline='\n')
+    
+    CSV  = False
 
-    data_csv = pd.read_csv(data, sep=",")
+
+    ## CHECK FOR JSON FILE FORMAT
+    try:
+        json_data = json.load(data)
+        JSON = True
+    except json.decoder.JSONDecodeError:
+        JSON = False
+        data.seek(0)
+    
+    ## HANDLE JSON INPUT FILES
+    if JSON:
+        ## TODO JSONIFY DATA
+        return jsonify(JSON_data)
+    
+    ## IF JSON FILE NOT DETECTED, TRY AND TREAT LIKE A CSV
+    try:
+        data_csv = pd.read_csv(data, sep=',')
+        CSV = True
+    except pd.errors.EmptyDataError as e:
+        return make_response(("Could not parse input file. Make sure the file follows the specifications.", 500))
 
     datatype = "None"
     code_column = False
+
+    if CSV:
+        data_csv.columns = [str(i).lower() for i in data_csv.columns]
 
     try:
         data_csv["counts"]
@@ -40,53 +64,35 @@ def csv_data():
     except KeyError:
         pass
     
-    try:
-        data_csv["ICD 9 Code"]
-        code_column = True
-    except KeyError:
-        pass
+
+    code_column_mapping = {
+        "codes": "ICD 9 Code",
+        "code": "ICD 9 Code",
+        "icd 9 codes": "ICD 9 Code",
+        "icd9 codes": "ICD 9 Code",
+        "icd 9 code": "ICD 9 Code",
+        "icd9 code": "ICD 9 Code"
+    }
+    data_csv = data_csv.rename(mapper=code_column_mapping, axis=1)
     
-    if not code_column:
-        try:
-            data_csv["ICD 9 Code"] = data_csv["codes"]
-            code_column = True
-        except KeyError:
-            pass
-        
-        try:
-            data_csv["ICD 9 Code"] = data_csv["code"]
-            code_column = True
-        except KeyError:
-            pass
-        
-        try:
-            data_csv["ICD 9 Code"] = data_csv["icd 9 codes"]
-            code_column = True
-        except KeyError:
-            pass
-        
-        try:
-            data_csv["ICD 9 Code"] = data_csv["icd9 codes"]
-            code_column = True
-        except KeyError:
-            pass
-    
-    if code_column:
+    if "ICD 9 Code" in data_csv.columns:
+        icd9 = ICD9(errorHandle="NoDx")
+        data_csv["code status"] = data_csv["ICD 9 Code"].apply(lambda x: icd9.isCode(x))
+        data_csv = data_csv[data_csv["code status"]]
+        #data_csv = data_csv[data_csv["scores"] > 200]
         if datatype == "counts":
             JSON_data = generateJSON_counts(data_csv)
         elif datatype == "scores" or datatype == "score":
             JSON_data = generateJSON_scores(data_csv, datatype)
         else:
-            return make_response(500, "file format issues")
+            return make_response(("Input file requires a 'counts' or 'scores' column", 500))
     else:
-        return make_response(500, "file format issues")
+        return make_response(("Input file requires a column named (code, codes, icd 9 codes, icd 9 codes)", 500))
 
 
-    
     """outfile=open("static/data/summer_dataset.json", "w")
     outfile.write(json.dumps(JSON_data, indent=2))
     outfile.close()"""
-    
     
     return jsonify(JSON_data)
 

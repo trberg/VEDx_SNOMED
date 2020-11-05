@@ -9,7 +9,7 @@ icd9 = ICD9("NoDx")
 #print (icd9.description("800-999"))
 
 threshold_count = 0
-threshold_score = 10
+threshold_score = 0
 max_node_count = 400
 
 
@@ -81,7 +81,7 @@ def description_handle(code):
     return descr
 
 
-def addChildren(code, ancestors, code_counts, max_level):
+def addChildren(code, ancestors, code_counts):
     output = []
     is_output = False
     
@@ -95,17 +95,12 @@ def addChildren(code, ancestors, code_counts, max_level):
                 temp["description"] = description_handle(child)
                 temp["parent"] = icd9.parent(child)
                 temp["depth"] = icd9.depth(child)
-                #print (temp["depth"], max_level)
-                children = addChildren(child, ancestors, code_counts, max_level)
+                children = addChildren(child, ancestors, code_counts)
                 if children == None:
                     pass
                 else:
-                    if temp["depth"] != max_level:
-                        temp["children"] = children
-                        temp["_children"] = None
-                    else:
-                        temp["children"] = children
-                        temp["_children"] = None
+                    temp["children"] = children
+                    temp["_children"] = None
 
                 try:
                     temp["size"] = code_counts[child]
@@ -128,22 +123,34 @@ def addChildren(code, ancestors, code_counts, max_level):
         return output
 
 
-def creating_JSON_tree(code_list, code_counts, calc_type):
-    #all_codes = list(icd9.getAllCodes())
+def getWeight(code, ancestors, code_counts):
+    child_weights = []
     
-    all_codes = list(set(icd9.descendants([str(i) for i in icd9.ancestors(code_list)])))
-    #all_codes = list(set(icd9.ancestors(code_list)))
+    for child in icd9.children(code):
+        if child in ancestors:
+            if child == None:
+                childWeight = 0
+            else:
+                childWeight = getWeight(child, ancestors, code_counts)
+
+                try:
+                    child_size = code_counts[child]
+                except KeyError:
+                    child_size = 1
+            child_weights.append(childWeight + child_size)
+        else:
+            pass
+    return sum(child_weights)
+
+
+def creating_JSON_tree(code_list, code_counts, calc_type):
+    
+    all_codes = list(set(icd9.ancestors(code_list)))
     
 
     depth_count = Counter()
     for code in all_codes:
         depth_count[icd9.depth(code)] += 1
-    
-    node_count = 0
-    max_level = 0
-    while (node_count < max_node_count):
-        max_level += 1
-        node_count += depth_count[max_level]
 
     parents = (sorted(list(set(icd9.abstract(all_codes, 1)))))
     parents = [i for i in parents if i != "NoDx"]
@@ -158,27 +165,82 @@ def creating_JSON_tree(code_list, code_counts, calc_type):
         temp["description"] = description_handle(code)
         temp["parent"] = icd9.parent(code)
         temp["depth"] = icd9.depth(code)
-        children = addChildren(code, ancestors, code_counts, max_level)
+        children = addChildren(code, ancestors, code_counts)
         
         if children == None:
             pass
         else:
-            if temp["depth"] != max_level:
-                temp["children"] = children
-                temp["_children"] = None
-            else:
-                temp["children"] = children
-                temp["_children"] = None
+            temp["children"] = children
+            temp["_children"] = None
 
         try:
             temp["size"] = code_counts[code]
         except KeyError:
             temp["size"] = 1
+        
+        if children == None:
+            temp["node_weight"] = temp["size"]
+        else:
+            temp["node_weight"] = getWeight(code, ancestors, code_counts) + temp["size"]
+
         if calc_type in ["counts", "score"]:
             tree.append(temp)
             is_output = True
         else:
             Exception("Something is wrong")
+    return tree
+
+
+def weight_nodes(node):
+    
+    if "children" in node.keys():
+        for child in node["children"]:
+            cur_node = weight_nodes(child)
+            cur_node_weight += cur_node["node_weight"]
+            child_sizes += cur_node["size"]
+    
+    node["node_weight"] = cur_node_weight + child_sizes
+
+    return node
+
+
+def prune_nodes(node, weight):
+    #return node, weight
+    if "children" in node.keys():
+        
+        if node["node_weight"] <= weight:
+            node["_children"] = node["children"]
+            node["children"] = None
+        else:
+            new_children = []
+            for child in node["children"]:
+                new_child, weight = prune_nodes(child, weight)
+                new_children.append(new_child)
+            node["children"] = new_children
+    return node, weight
+    
+
+def weight_tree(tree):
+
+    weights = []
+
+    tree, weights = weight_nodes(tree, weights)
+
+    return tree
+
+
+def prune_tree(tree):
+
+    weights = []
+
+    tree, weights = weight_nodes(tree, weights)
+
+    weights.sort(reverse=True)
+    weights = weights[:100]
+    min_weight = min(weights)
+    print (min_weight)
+    tree, min_weight = prune_nodes(tree, min_weight)
+
     return tree
 
 
@@ -191,9 +253,10 @@ def generateTree(code_counts, calc_type):
         "description": "ICD 9 Root",
         "children": all_children,
         "parent": "null",
-        "depth": "null"
+        "depth": "null",
+        "node_weight": 10000
     }
-
+    #print (tree)
     return tree
     
 
@@ -204,6 +267,8 @@ def generateJSON_scores(pd_csv, datatype):
     
     pd_csv[datatype] = pd_csv[datatype].astype(float)
     pd_csv = pd_csv[pd_csv[datatype] > threshold_score]
+
+    
 
     csv = pd_csv.set_index("ICD 9 Code").to_dict()[datatype]
     score_output = {}

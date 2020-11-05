@@ -22,6 +22,19 @@ const uploadbutton = () => {
   // add event listener to visible submit button
   document.getElementById('submitButton').addEventListener('click', submitFile, {passive: true});
 
+  document.getElementById("node-info").style.display="hidden";
+
+  // add event listener for loading image
+  var $loading = $('#load_spinner').hide();
+
+  $(document)
+      .ajaxStart(function(){
+        $($loading).show();
+      })
+      .ajaxStop(function(){
+        $($loading).hide();
+      });
+
   // add event listener to filter slider
   document.getElementById('min_slider').addEventListener('mouseup', circleFilter, {passive: true});
   document.getElementById('max_slider').addEventListener('mouseup', circleFilter, {passive: true});
@@ -40,7 +53,7 @@ const uploadbutton = () => {
     document.getElementById('fileid').click();
 
   }
-
+  // display the svg tree when called
   function displaySVG(callback) {
     d3.select("svg#icd9tree")
       .style("display", true)
@@ -52,26 +65,31 @@ const uploadbutton = () => {
   // on click of visible submit button, click hidden submit input element
   function submitFile() {
     var file = document.getElementById("fileid").files[0];
-
+    
     $.ajax({
       type : 'POST',
-      url : '/csv_data',
+      url : '/process_data',
       data: file,
       datatype: 'json',
-      processData: false,  // tell jQuery not to process the data
-      contentType: false,   // tell jQuery not to set contentType
-      complete: function(data) {
+      timeout: 1000,
+      success: function(data) {
         $("div.slideshow").fadeOut(300);
         $("div.slide_btn").fadeOut(300, function() {
           $("button.tutorial").fadeOut(300, function() {
             $("div.logo").fadeOut(400, function() {
               displaySVG( function() {
-                tree(data.responseJSON, "main");
+                tree(data, "main");
               });
             });
           });
         });
-      }
+      },
+      error: function (xhr, status, errorThrown){
+        document.getElementById("error_message").innerHTML = xhr.responseText;
+        $( "#errorModal" ).modal("show");
+      },
+      processData: false,  // tell jQuery not to process the data
+      contentType: false   // tell jQuery not to set contentType
     });
   }
 }

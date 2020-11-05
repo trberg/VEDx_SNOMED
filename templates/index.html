@@ -10,6 +10,9 @@
   <!-- Custom CSS -->
   <link href='/static/css/styles.css' rel='stylesheet' type='text/css'>
 
+  <!-- loading page CSS-->
+  <link href="/static/css/three-dots.css" rel="stylesheet", type='text/css'>
+
   <!-- Fonts for this page-->
   <style type="text/css">
     @font-face {
@@ -22,6 +25,12 @@
         font-family: "Open Sans";
         src: url(/static/css/fonts/OpenSans/OpenSans-Regular.ttf) format("truetype");
         font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "Open Sans";
+        src: url(/static/css/fonts/OpenSans/OpenSans-Bold.ttf) format("truetype");
+        font-weight: bold;
         font-style: normal;
     }
     @font-face {
@@ -46,6 +55,24 @@
 </head>
 
 <body>
+  <!-- Dialog box for reporting errors-->
+  <div class="modal" id="errorModal"
+    role="dialog" aria-labelledby="ErrorMessageBox"
+    aria-hidden="true"> 
+
+    <div class="modal-dialog"> 
+      <div class="modal-content"> 
+          <!-- Error Message -->
+          <div class="m-header"> 
+            <h4 class="myModalLabel" width="50px" padding="10px"> Error Encountered! </h4> 
+            <p id="error_message"> Error Message </p> 
+            <button data-dismiss="modal"> OK </button> 
+        </div> 
+
+      </div> 
+    </div> 
+  </div> 
+
   <!-- Things to add to top bar:
           1. Label filter slider
           3. Custom size ratios (log, linear, quad)
@@ -57,14 +84,14 @@
       Long term
           - FHIR application
    -->
-   <div class="row">
+  <div class="row">
     <div class="top-bar">
       <div class="column">
 
-          <input type="file" id="fileid" accept=".CSV" hidden/>
+          <input type="file" id="fileid" accept=".JSON,.CSV"  hidden/>
           <input type="submit" id="submit_input" hidden/>
+          <button id='buttonid'>Upload File</button>
 
-          <button id='buttonid'>Upload CSV</button>
           <p id="filename" style="margin-left:5px;">No file</p>
           <button id="submitButton">Submit</button>
       </div>
@@ -121,11 +148,22 @@
             <label class="custom-control-label" for="DescriptionLabels">Description</label>
           </div>
         </section>
-        
       </div>
-
+    </div>
+    <div class="top-bar-right">
+      <div class="menu_node" id="node-info">
+        <h4>Node Info</h4>
+        <span id="menu_code"></span>
+        <br>
+        <span id="menu_code_value"></span>
+        <br>
+        <span id="menu_code_name"></span>
+      </div>
     </div>
   </div>
+
+  <div class="dot-brick" id="load_spinner"></div>
+
   <div class="logo" id="central_logo">
     <p>
       <span class="ve_text">VE</span><span class="d_text">D</span><span class="x_text"><sub>x</sub></span>
@@ -134,7 +172,6 @@
     </p>
   </div>
   <button id="tutorial_btn" class="tutorial">Tutorial</button>
-
 
   <!-- Tutorial slide show -->
   <div class="slideshow" id="tutorial-container">
@@ -319,13 +356,12 @@
   <button id="prev_slide" >previous</button><button id="next_slide">next</button>
 </div>
 
-
 <svg id="icd9tree" class="icd9class">
   <defs>
     <style type="text/css">
       @font-face {
         font-family: 'Open Sans';
-        src: url(/static/css/fonts/OpenSans-Regular.ttf) format('truetype');
+        src: url(/static/css/fonts/OpenSans/OpenSans-Regular.ttf) format('truetype');
         font-weight: normal;
         font-style: normal;
     </style>
@@ -344,6 +380,7 @@
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="/static/packages/jquery-3.3.1.min.js"></script>
+<script src="/static/packages/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <script src="/static/packages/popper.min.js"></script>
 <script src="/static/packages/bootstrap.min.js"></script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
