@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Boostrap stylesheet version 4.1.2 -->
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+
+  <!-- Custom CSS -->
+  <link href='/static/css/styles.css' rel='stylesheet' type='text/css'>
+
+  <!-- loading page CSS-->
+  <link href="/static/css/three-dots.css" rel="stylesheet", type='text/css'>
+
+  <!-- Fonts for this page-->
+  <style type="text/css">
+    @font-face {
+        font-family: "Open Sans";
+        src: url(/static/css/fonts/OpenSans/OpenSans-Light.ttf) format("truetype");
+        font-weight: lighter;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "Open Sans";
+        src: url(/static/css/fonts/OpenSans/OpenSans-Regular.ttf) format("truetype");
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "Open Sans";
+        src: url(/static/css/fonts/OpenSans/OpenSans-Bold.ttf) format("truetype");
+        font-weight: bold;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "Open Sans Condensed";
+        src: url(/static/css/fonts/OpenSans\ Condensed/OpenSansCondensed-Light.ttf) format("truetype");
+        
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: "Raleway";
+        src: url(/static/css/fonts/Raleway/Raleway-Regular.ttf) format("truetype");
+        
+        font-weight: normal;
+        font-style: normal;
+    }
+  </style>
+
+
+  <title>VEDx</title>
+
+</head>
+
+<svg id="dag-tree" class="dag-tree"></svg>
+
+
+<!-- load the d3.js library -->	
+<script src="http://d3js.org/d3.v7.min.js"></script> 
+<!-- <script src="http://d3plus.org/js/d3plus.js"></script> -->
+<!-- <script src="/static/packages/d3.v3.min.js"></script> -->
+<script src="https://unpkg.com/d3-dag@0.11.1"></script>
+
+
+<!-- load the text wrapping library -->
+<!-- <script src="https://d3plus.org/js/d3plus-text.v0.9.full.min.js"></script> -->
+<!-- <script src="/static/packages/d3plus-text.full.js"></script> -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="/static/packages/jquery-3.3.1.min.js"></script>
+<!-- <script src="/static/packages/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<script src="/static/packages/popper.min.js"></script>
+<script src="/static/packages/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script> -->
+
+
+<!-- Application modules -->
+<script type="module" src="/static/js/index_dag.js"></script>
